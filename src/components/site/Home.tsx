@@ -16,16 +16,15 @@ const nav = [
   { label: "Services", href: "#services" },
   { label: "Results", href: "#results" },
   { label: "Reviews", href: "#reviews" },
-  { label: "Process", href: "#process" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
 const stats = [
-  { value: "3x", label: "Avg. CTR Lift" },
-  { value: "200+", label: "Creatives Shipped" },
-  { value: "48h", label: "Fast Turnaround" },
-  { value: "100%", label: "Conversion Focus" },
+  { value: "3.4×", label: "Avg. CTR Lift" },
+  { value: "1,200+", label: "Creatives Shipped" },
+  { value: "48h", label: "First Draft" },
+  { value: "4.9/5", label: "Client Rating" },
 ];
 
 const creatorServices = [
@@ -48,14 +47,6 @@ const healthcareServices = [
   { icon: Search, title: "Google Maps & Local SEO", desc: "Help patients discover your clinic first in local search." },
   { icon: Users, title: "Doctor Personal Branding", desc: "Authority and visibility strategy for doctors and specialists." },
   { icon: MessageCircle, title: "WhatsApp Automation", desc: "Automated inquiry and appointment flows on WhatsApp & Messenger." },
-];
-
-const process = [
-  { n: "01", title: "Discovery", desc: "We review your goals, brand, audience, and performance targets." },
-  { n: "02", title: "Concept & Design", desc: "Initial concepts based on brief — you review and give feedback." },
-  { n: "03", title: "Revisions", desc: "Refine until the design is exactly right — precise, on-brand." },
-  { n: "04", title: "Final Delivery", desc: "All final files in agreed formats, ready to publish and run." },
-  { n: "05", title: "Retainer (optional)", desc: "Monthly support for ongoing design that scales with your growth." },
 ];
 
 const results = [
