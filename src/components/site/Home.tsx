@@ -183,37 +183,42 @@ export function Home() {
               <Badge className="rounded-full border-none bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-accent hover:bg-accent/10">
                 48h First Draft
               </Badge>
+              <Badge className="rounded-full border-none bg-brand-yellow/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-ink hover:bg-brand-yellow/30">
+                <Star className="mr-1 h-3 w-3 fill-current" /> 4.9/5 · 120+ brands
+              </Badge>
             </div>
             <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              More Clicks. More Sales.{" "}
+              Design that gets you{" "}
               <span className="relative inline-block">
-                <span className="text-gradient-primary">Performs.</span>
+                <span className="text-gradient-primary">more clicks &amp; sales.</span>
                 <svg viewBox="0 0 300 12" className="absolute -bottom-2 left-0 w-full" fill="none">
                   <path d="M2 9 Q 80 2 150 6 T 298 4" stroke="var(--accent)" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              We design thumbnails, ads, and landing pages that <strong className="text-foreground">3× your CTR</strong> and turn
-              scrollers into buyers — for creators, sellers, and healthcare brands. No fluff, no filler. Just pixels that pay you back.
+              We design thumbnails, ad creatives &amp; landing pages that <strong className="text-foreground">3× your CTR</strong> and
+              turn scrollers into buyers — for creators, DTC sellers, and healthcare brands.
+              <span className="mt-2 block font-semibold text-foreground">First concept in 48 hours. Revisions until it converts.</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#contact">
                 <Button size="lg" className="group rounded-full bg-primary px-7 py-6 text-base font-bold shadow-elegant transition-transform hover:-translate-y-0.5 hover:bg-primary-glow">
-                  <CalendarCheck className="mr-2 h-4 w-4" /> Get My Free Audit
+                  <CalendarCheck className="mr-2 h-4 w-4" /> Get My Free Audit (worth $250)
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
-              <a href="#results">
+              <a href="#case-studies">
                 <Button size="lg" variant="outline" className="rounded-full border-2 border-foreground/15 bg-background px-7 py-6 text-base font-semibold hover:border-primary hover:text-primary">
-                  <Play className="mr-1 h-4 w-4" /> See Real Results
+                  <Play className="mr-1 h-4 w-4" /> See Case Studies
                 </Button>
               </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
-              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> No contracts</span>
-              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> 20-min free call</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> No contracts, no retainers</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> 20-min strategy call</span>
               <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Revisions until it converts</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> NDA on every project</span>
             </div>
 
             <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
