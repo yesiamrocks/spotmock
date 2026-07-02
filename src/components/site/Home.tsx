@@ -70,6 +70,7 @@ const caseStudies = [
       { k: "+62K", v: "New subs in 30 days" },
     ],
     accent: "primary" as const,
+    cta: "Get my thumbnail audit",
   },
   {
     tag: "Healthcare Brand",
@@ -83,6 +84,7 @@ const caseStudies = [
       { k: "9.4%", v: "Landing CVR" },
     ],
     accent: "accent" as const,
+    cta: "Audit my patient funnel",
   },
   {
     tag: "DTC Seller",
@@ -96,6 +98,21 @@ const caseStudies = [
       { k: "4.7×", v: "ROAS" },
     ],
     accent: "brand-orange" as const,
+    cta: "Rebuild my ad system",
+  },
+  {
+    tag: "Agency / Ad Ops",
+    industry: "Creative Production at Scale",
+    title: "600+ ad variants / month, zero missed deadlines",
+    problem: "A performance agency needed SEBPO-style creative throughput — hundreds of localized ad variants weekly — without losing quality or blowing budget on an in-house team.",
+    solution: "Dedicated pod with a locked template system, 24-hour turnarounds, weekly performance reviews, and creative refresh cycles tied to ad fatigue data.",
+    metrics: [
+      { k: "600+", v: "Variants / month" },
+      { k: "24h", v: "Avg. turnaround" },
+      { k: "-52%", v: "Cost vs in-house" },
+    ],
+    accent: "primary" as const,
+    cta: "Scope a creative pod",
   },
 ];
 
@@ -123,6 +140,7 @@ const guarantees = [
 
 const faqs = [
   { q: "How fast can you start?", a: "Most projects kick off within 24 hours of your brief. First concepts land in 48 hours or less." },
+  { q: "Can you handle SEBPO-style high-volume creative production?", a: "Yes. We run dedicated pods for agencies and in-house teams that need 200–1,000+ ad variants per month — with locked template systems, 24-hour turnarounds, and weekly performance reviews. Priced 40–60% below the cost of a comparable in-house team." },
   { q: "Do you guarantee results?", a: "We guarantee performance-obsessed work and revisions until the design hits the target. Actual results depend on your offer, product, and traffic — but we've never had a project ship without a measurable lift." },
   { q: "Can you work with our existing brand?", a: "Yes. We adapt to your existing brand system, or we can rebuild it. Either way, every asset is on-brand and conversion-tuned." },
   { q: "Do you sign NDAs?", a: "Always. Healthcare and creator projects are confidential by default. Case studies are only shared with explicit written permission." },
@@ -188,13 +206,7 @@ export function Home() {
               </Badge>
             </div>
             <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Design that gets you{" "}
-              <span className="relative inline-block">
-                <span className="text-gradient-primary">more clicks &amp; sales.</span>
-                <svg viewBox="0 0 300 12" className="absolute -bottom-2 left-0 w-full" fill="none">
-                  <path d="M2 9 Q 80 2 150 6 T 298 4" stroke="var(--accent)" strokeWidth="4" strokeLinecap="round" />
-                </svg>
-              </span>
+              Design that gets you <span className="text-gradient-primary">more clicks</span> &amp; <span className="text-gradient-primary">more sales.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               We design thumbnails, ad creatives &amp; landing pages that <strong className="text-foreground">3× your CTR</strong> and
@@ -418,8 +430,27 @@ export function Home() {
                       <p className="mt-1 text-sm leading-relaxed text-foreground/80">{c.solution}</p>
                     </div>
                   </div>
-                  <a href="#contact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-glow">
-                    Want a lift like this? Book your free audit <ArrowRight className="h-4 w-4" />
+                  <a
+                    href={`#contact?interest=${encodeURIComponent(c.tag)}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById("contact");
+                      const sel = document.getElementById("interest-select") as HTMLSelectElement | null;
+                      if (sel) {
+                        const match = Array.from(sel.options).find((o) => o.value === c.tag);
+                        if (match) sel.value = c.tag;
+                        else {
+                          const opt = document.createElement("option");
+                          opt.value = c.tag; opt.text = c.tag; sel.add(opt); sel.value = c.tag;
+                        }
+                      }
+                      const brief = document.getElementById("brief-textarea") as HTMLTextAreaElement | null;
+                      if (brief && !brief.value) brief.value = `Interested in results like: ${c.title}`;
+                      el?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-glow"
+                  >
+                    {c.cta} <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
                 <div className="grid grid-cols-3 gap-3 rounded-2xl bg-secondary/60 p-5 lg:col-span-5 lg:grid-cols-1 lg:content-center lg:gap-4">
@@ -642,19 +673,19 @@ export function Home() {
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">I need help with</label>
-                <select className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary">
+                <select id="interest-select" className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary">
                   <option>YouTube Thumbnails</option>
                   <option>Ad Creatives</option>
                   <option>Landing Pages</option>
                   <option>Brand Identity</option>
                   <option>Healthcare Design</option>
-                  <option>A bundle package</option>
+                  <option>High-volume ad production (SEBPO-style)</option>
                   <option>Not sure yet</option>
                 </select>
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Project brief</label>
-                <textarea rows={4} className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary" placeholder="Tell us about your goals, audience, and timeline…" />
+                <textarea id="brief-textarea" rows={4} className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary" placeholder="Tell us about your goals, audience, and timeline…" />
               </div>
               <Button type="submit" className="w-full rounded-full bg-primary py-6 text-base font-bold shadow-elegant hover:bg-primary-glow">
                 Send Brief <ArrowRight className="ml-1 h-4 w-4" />
