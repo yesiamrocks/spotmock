@@ -440,22 +440,23 @@ export function Home() {
           <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-foreground/80">
-                <Star className="h-3 w-3 fill-current" /> The SpotMock Standard
+                <Flame className="h-3 w-3 fill-current" /> Limited July Slots
               </div>
               <h2 className="mt-4 font-display text-4xl font-extrabold leading-tight text-primary-foreground sm:text-5xl">
-                When your design works harder, your business grows faster.
+                Stop paying for design that just sits there.
               </h2>
               <p className="mt-5 max-w-xl text-lg text-primary-foreground/85">
-                Fast turnarounds. Clear communication. Zero guesswork. You brief us, we deliver work that performs —
-                on time, on brand, and built to grow with you.
+                Book a free 20-minute audit. We'll show you exactly where your creative is leaking clicks —
+                and give you 3 quick fixes on the call. Zero pitch. Zero pressure.
               </p>
             </div>
             <div className="lg:col-span-4 lg:text-right">
               <a href="#contact">
-                <Button size="lg" className="rounded-full bg-background px-8 py-6 text-base font-bold text-foreground shadow-elegant hover:bg-background/90">
-                  Book Your Free Call <ArrowRight className="ml-2 h-4 w-4" />
+                <Button size="lg" className="group rounded-full bg-background px-8 py-6 text-base font-bold text-foreground shadow-elegant transition-transform hover:-translate-y-0.5 hover:bg-background/90">
+                  Claim My Free Audit <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
+              <p className="mt-3 text-xs text-primary-foreground/70 lg:text-right">Reply within 1 business day.</p>
             </div>
           </div>
         </div>
@@ -555,6 +556,15 @@ export function Home() {
           </div>
         </div>
       </footer>
+
+      {/* STICKY MOBILE CTA */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 px-4 py-3 shadow-elegant backdrop-blur md:hidden">
+        <a href="#contact" className="block">
+          <Button className="w-full rounded-full bg-primary py-6 text-base font-bold shadow-elegant hover:bg-primary-glow">
+            Get My Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+          </Button>
+        </a>
+      </div>
     </div>
   );
 }
