@@ -158,9 +158,18 @@ const problems = [
 ];
 
 const platforms = [
-  "YouTube", "TikTok", "Instagram", "Facebook", "LinkedIn",
-  "Amazon", "Shopify", "WooCommerce", "Webflow", "Framer",
-  "Meta Ads", "Google Ads", "TikTok Ads", "WhatsApp", "ManyChat",
+  { name: "YouTube", icon: Youtube, cat: "Video" },
+  { name: "TikTok", icon: Video, cat: "Video" },
+  { name: "Instagram", icon: Instagram, cat: "Social" },
+  { name: "Facebook", icon: Facebook, cat: "Social" },
+  { name: "Meta Ads", icon: Target, cat: "Ads" },
+  { name: "Google Ads", icon: Search, cat: "Ads" },
+  { name: "TikTok Ads", icon: Flame, cat: "Ads" },
+  { name: "Amazon", icon: ShoppingBag, cat: "Commerce" },
+  { name: "Shopify", icon: ShoppingBag, cat: "Commerce" },
+  { name: "Webflow", icon: Globe, cat: "Web" },
+  { name: "Framer", icon: LayoutTemplate, cat: "Web" },
+  { name: "WhatsApp", icon: MessageCircle, cat: "Chat" },
 ];
 
 export function Home() {
