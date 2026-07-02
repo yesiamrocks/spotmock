@@ -7,7 +7,7 @@ import {
   MousePointerClick, Palette, LayoutTemplate, Video, ShoppingBag,
   Youtube, Instagram, Facebook, Sparkles, MessageCircle, Search,
   Stethoscope, Building2, ChevronRight, Star, Mail, Globe,
-  Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus,
+  Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus, Flame, CalendarCheck,
 } from "lucide-react";
 import logoAsset from "@/assets/spotmock-logo.png.asset.json";
 import heroVisual from "@/assets/hero-visual.jpg";
@@ -133,11 +133,16 @@ export function Home() {
       <section id="top" className="relative overflow-hidden bg-gradient-hero">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:py-24">
           <div className="lg:col-span-6 lg:pt-8">
-            <Badge className="rounded-full border-none bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/10">
-              Content & Conversion Design Studio
-            </Badge>
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge className="rounded-full border-none bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/10">
+                <Flame className="mr-1 h-3 w-3" /> Booking July — 3 slots left
+              </Badge>
+              <Badge className="rounded-full border-none bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-accent hover:bg-accent/10">
+                48h First Draft
+              </Badge>
+            </div>
             <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Design That{" "}
+              More Clicks. More Sales.{" "}
               <span className="relative inline-block">
                 <span className="text-gradient-primary">Performs.</span>
                 <svg viewBox="0 0 300 12" className="absolute -bottom-2 left-0 w-full" fill="none">
@@ -146,20 +151,26 @@ export function Home() {
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              We design high-performing visuals that drive clicks, conversions, and sales
-              for creators, sellers, and healthcare brands. Every pixel — engineered for outcomes.
+              We design thumbnails, ads, and landing pages that <strong className="text-foreground">3× your CTR</strong> and turn
+              scrollers into buyers — for creators, sellers, and healthcare brands. No fluff, no filler. Just pixels that pay you back.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#contact">
-                <Button size="lg" className="rounded-full bg-primary px-7 py-6 text-base font-semibold shadow-elegant hover:bg-primary-glow">
-                  Start Your Project <ArrowRight className="ml-1 h-4 w-4" />
+                <Button size="lg" className="group rounded-full bg-primary px-7 py-6 text-base font-bold shadow-elegant transition-transform hover:-translate-y-0.5 hover:bg-primary-glow">
+                  <CalendarCheck className="mr-2 h-4 w-4" /> Get My Free Audit
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
-              <a href="#services">
+              <a href="#results">
                 <Button size="lg" variant="outline" className="rounded-full border-2 border-foreground/15 bg-background px-7 py-6 text-base font-semibold hover:border-primary hover:text-primary">
-                  <Play className="mr-1 h-4 w-4" /> Explore Services
+                  <Play className="mr-1 h-4 w-4" /> See Real Results
                 </Button>
               </a>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> No contracts</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> 20-min free call</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Revisions until it converts</span>
             </div>
 
             <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
