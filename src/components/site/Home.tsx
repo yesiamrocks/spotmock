@@ -14,6 +14,7 @@ import heroVisual from "@/assets/hero-visual.jpg";
 
 const nav = [
   { label: "Services", href: "#services" },
+  { label: "Case Studies", href: "#case-studies" },
   { label: "Results", href: "#results" },
   { label: "Reviews", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
@@ -54,6 +55,48 @@ const results = [
   { metric: "3.2×", label: "Patient bookings for dental clinic", detail: "New landing page + Meta ad creatives, first 60 days." },
   { metric: "-41%", label: "Cost-per-lead on Meta Ads", detail: "DTC skincare seller — same budget, new creative system." },
   { metric: "+68%", label: "Add-to-cart on Shopify PDP", detail: "Rebuilt product page hierarchy and above-the-fold visuals." },
+];
+
+const caseStudies = [
+  {
+    tag: "YouTube Creator",
+    industry: "Finance / Education",
+    title: "From 4% CTR to 11.2% in 21 days",
+    problem: "Channel had 240K subs but videos plateaued. Thumbnails looked polished — but blended into every finance channel on the platform.",
+    solution: "New thumbnail system with face-forward emotion, curiosity gap headlines, and a signature color grade. A/B tested for 3 rounds.",
+    metrics: [
+      { k: "+187%", v: "CTR" },
+      { k: "2.4×", v: "Views / video" },
+      { k: "+62K", v: "New subs in 30 days" },
+    ],
+    accent: "primary" as const,
+  },
+  {
+    tag: "Healthcare Brand",
+    industry: "Aesthetics Clinic",
+    title: "3.2× patient bookings in 60 days",
+    problem: "Beautiful clinic, broken funnel. Meta ads drove traffic to a homepage — booking form was buried three clicks deep.",
+    solution: "Dedicated conversion landing page, credibility-first hero, transparent pricing, and ad creatives matched to the offer angle.",
+    metrics: [
+      { k: "3.2×", v: "Bookings" },
+      { k: "-58%", v: "Cost per lead" },
+      { k: "9.4%", v: "Landing CVR" },
+    ],
+    accent: "accent" as const,
+  },
+  {
+    tag: "DTC Seller",
+    industry: "Skincare · Shopify",
+    title: "-41% CPL, same budget, new creative system",
+    problem: "Creator-style UGC ads had fatigued. ROAS dropped from 3.1 to 1.4 over a quarter and blended in with every other skincare brand.",
+    solution: "10-variant static + video ad system built around one proprietary claim. Rebuilt PDP above-the-fold to match ad promise.",
+    metrics: [
+      { k: "-41%", v: "CPL" },
+      { k: "+68%", v: "Add-to-cart" },
+      { k: "4.7×", v: "ROAS" },
+    ],
+    accent: "brand-orange" as const,
+  },
 ];
 
 const testimonials = [
@@ -140,37 +183,42 @@ export function Home() {
               <Badge className="rounded-full border-none bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-accent hover:bg-accent/10">
                 48h First Draft
               </Badge>
+              <Badge className="rounded-full border-none bg-brand-yellow/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-ink hover:bg-brand-yellow/30">
+                <Star className="mr-1 h-3 w-3 fill-current" /> 4.9/5 · 120+ brands
+              </Badge>
             </div>
             <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              More Clicks. More Sales.{" "}
+              Design that gets you{" "}
               <span className="relative inline-block">
-                <span className="text-gradient-primary">Performs.</span>
+                <span className="text-gradient-primary">more clicks &amp; sales.</span>
                 <svg viewBox="0 0 300 12" className="absolute -bottom-2 left-0 w-full" fill="none">
                   <path d="M2 9 Q 80 2 150 6 T 298 4" stroke="var(--accent)" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              We design thumbnails, ads, and landing pages that <strong className="text-foreground">3× your CTR</strong> and turn
-              scrollers into buyers — for creators, sellers, and healthcare brands. No fluff, no filler. Just pixels that pay you back.
+              We design thumbnails, ad creatives &amp; landing pages that <strong className="text-foreground">3× your CTR</strong> and
+              turn scrollers into buyers — for creators, DTC sellers, and healthcare brands.
+              <span className="mt-2 block font-semibold text-foreground">First concept in 48 hours. Revisions until it converts.</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#contact">
                 <Button size="lg" className="group rounded-full bg-primary px-7 py-6 text-base font-bold shadow-elegant transition-transform hover:-translate-y-0.5 hover:bg-primary-glow">
-                  <CalendarCheck className="mr-2 h-4 w-4" /> Get My Free Audit
+                  <CalendarCheck className="mr-2 h-4 w-4" /> Get My Free Audit (worth $250)
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
-              <a href="#results">
+              <a href="#case-studies">
                 <Button size="lg" variant="outline" className="rounded-full border-2 border-foreground/15 bg-background px-7 py-6 text-base font-semibold hover:border-primary hover:text-primary">
-                  <Play className="mr-1 h-4 w-4" /> See Real Results
+                  <Play className="mr-1 h-4 w-4" /> See Case Studies
                 </Button>
               </a>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
-              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> No contracts</span>
-              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> 20-min free call</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> No contracts, no retainers</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> 20-min strategy call</span>
               <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Revisions until it converts</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> NDA on every project</span>
             </div>
 
             <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
@@ -330,6 +378,66 @@ export function Home() {
 
       {/* RESULTS */}
       <section id="results" className="bg-secondary/40 py-24">
+        {/* keep anchor */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" />
+      </section>
+
+      {/* CASE STUDIES */}
+      <section id="case-studies" className="bg-secondary/40 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-orange">Case Studies</p>
+            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+              Real projects. <span className="text-gradient-primary">Real numbers.</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              A look inside three recent engagements — the problem, what we shipped, and the lift we measured.
+            </p>
+          </div>
+
+          <div className="mt-14 space-y-6">
+            {caseStudies.map((c, i) => (
+              <Card key={c.title} className="group grid gap-8 rounded-3xl border-border/60 bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant lg:grid-cols-12 lg:p-10">
+                <div className="lg:col-span-7">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge className={`rounded-full border-none px-3 py-1 text-xs font-bold uppercase tracking-wider ${
+                      c.accent === "primary" ? "bg-primary/10 text-primary hover:bg-primary/10"
+                      : c.accent === "accent" ? "bg-accent/10 text-accent hover:bg-accent/10"
+                      : "bg-brand-orange/15 text-brand-orange hover:bg-brand-orange/15"
+                    }`}>{c.tag}</Badge>
+                    <span className="text-xs font-medium text-muted-foreground">{c.industry}</span>
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl font-extrabold leading-tight sm:text-3xl">{c.title}</h3>
+                  <div className="mt-5 space-y-4">
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-destructive">The Problem</div>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/80">{c.problem}</p>
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-primary">What We Shipped</div>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/80">{c.solution}</p>
+                    </div>
+                  </div>
+                  <a href="#contact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-glow">
+                    Want a lift like this? Book your free audit <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+                <div className="grid grid-cols-3 gap-3 rounded-2xl bg-secondary/60 p-5 lg:col-span-5 lg:grid-cols-1 lg:content-center lg:gap-4">
+                  {c.metrics.map((m, mi) => (
+                    <div key={mi} className="text-center lg:text-left">
+                      <div className="font-display text-3xl font-extrabold text-gradient-primary sm:text-4xl">{m.k}</div>
+                      <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{m.v}</div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RESULTS METRICS */}
+      <section className="bg-secondary/40 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-widest text-accent">Real Results</p>
@@ -427,6 +535,24 @@ export function Home() {
                   </button>
                 );
               })}
+            </div>
+
+            {/* Inline conversion card */}
+            <div className="mt-6 flex flex-col items-start justify-between gap-5 rounded-3xl border border-primary/30 bg-gradient-primary p-6 shadow-elegant sm:flex-row sm:items-center sm:p-7">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-foreground/85">
+                  <Sparkles className="h-3.5 w-3.5" /> Still have questions?
+                </div>
+                <p className="mt-2 font-display text-xl font-extrabold text-primary-foreground sm:text-2xl">
+                  Get 3 free creative fixes on a 20-min call.
+                </p>
+                <p className="mt-1 text-sm text-primary-foreground/85">No pitch. No pressure. Just clarity.</p>
+              </div>
+              <a href="#contact" className="shrink-0">
+                <Button size="lg" className="group rounded-full bg-background px-6 py-6 text-base font-bold text-foreground shadow-elegant hover:-translate-y-0.5 hover:bg-background/90">
+                  Book My Free Audit <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </a>
             </div>
           </div>
         </div>
