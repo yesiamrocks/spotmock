@@ -70,6 +70,7 @@ const caseStudies = [
       { k: "+62K", v: "New subs in 30 days" },
     ],
     accent: "primary" as const,
+    cta: "Get my thumbnail audit",
   },
   {
     tag: "Healthcare Brand",
@@ -83,6 +84,7 @@ const caseStudies = [
       { k: "9.4%", v: "Landing CVR" },
     ],
     accent: "accent" as const,
+    cta: "Audit my patient funnel",
   },
   {
     tag: "DTC Seller",
@@ -96,6 +98,7 @@ const caseStudies = [
       { k: "4.7×", v: "ROAS" },
     ],
     accent: "brand-orange" as const,
+    cta: "Rebuild my ad system",
   },
   {
     tag: "Agency / Ad Ops",
@@ -109,7 +112,7 @@ const caseStudies = [
       { k: "-52%", v: "Cost vs in-house" },
     ],
     accent: "primary" as const,
-    interest: "High-volume ad production",
+    cta: "Scope a creative pod",
   },
 ];
 
@@ -427,8 +430,27 @@ export function Home() {
                       <p className="mt-1 text-sm leading-relaxed text-foreground/80">{c.solution}</p>
                     </div>
                   </div>
-                  <a href="#contact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-glow">
-                    Want a lift like this? Book your free audit <ArrowRight className="h-4 w-4" />
+                  <a
+                    href={`#contact?interest=${encodeURIComponent(c.tag)}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById("contact");
+                      const sel = document.getElementById("interest-select") as HTMLSelectElement | null;
+                      if (sel) {
+                        const match = Array.from(sel.options).find((o) => o.value === c.tag);
+                        if (match) sel.value = c.tag;
+                        else {
+                          const opt = document.createElement("option");
+                          opt.value = c.tag; opt.text = c.tag; sel.add(opt); sel.value = c.tag;
+                        }
+                      }
+                      const brief = document.getElementById("brief-textarea") as HTMLTextAreaElement | null;
+                      if (brief && !brief.value) brief.value = `Interested in results like: ${c.title}`;
+                      el?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-glow"
+                  >
+                    {c.cta} <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
                 <div className="grid grid-cols-3 gap-3 rounded-2xl bg-secondary/60 p-5 lg:col-span-5 lg:grid-cols-1 lg:content-center lg:gap-4">
