@@ -284,13 +284,61 @@ export function Home() {
         </div>
       </section>
 
-      {/* MARQUEE / PLATFORMS */}
-      <section className="border-y border-border/60 bg-secondary/40 py-6">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 text-sm font-medium text-muted-foreground">
-          <span className="text-xs font-bold uppercase tracking-widest text-foreground/50">We work across</span>
-          {platforms.map((p) => (
-            <span key={p} className="opacity-80">{p}</span>
-          ))}
+      {/* PLATFORMS */}
+      <section className="relative overflow-hidden border-y border-border/60 bg-brand-ink py-16 text-background">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage:
+              "radial-gradient(600px 300px at 15% 20%, oklch(0.65 0.16 165 / 0.6), transparent 60%), radial-gradient(500px 260px at 85% 80%, oklch(0.7 0.19 20 / 0.5), transparent 60%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-brand-yellow backdrop-blur">
+              <Sparkles className="h-3.5 w-3.5" /> Where we perform
+            </span>
+            <h2 className="max-w-3xl font-display text-3xl font-extrabold leading-tight text-background sm:text-4xl">
+              Built to convert across every platform that <span className="text-gradient-primary">pays you back</span>.
+            </h2>
+            <p className="max-w-xl text-sm text-background/60">
+              12+ platforms. One conversion playbook. Native creative for each — never recycled.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {platforms.map((p, i) => {
+              const tint =
+                i % 4 === 0
+                  ? "text-primary-glow"
+                  : i % 4 === 1
+                  ? "text-accent"
+                  : i % 4 === 2
+                  ? "text-brand-orange"
+                  : "text-brand-yellow";
+              return (
+                <div
+                  key={p.name}
+                  className="group relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08]"
+                >
+                  <div className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white/5 ${tint} transition-transform group-hover:scale-110`}>
+                    <p.icon className="h-4.5 w-4.5" strokeWidth={2.2} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="truncate text-sm font-semibold text-background">{p.name}</div>
+                    <div className="truncate text-[10px] font-medium uppercase tracking-wider text-background/40">{p.cat}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-background/60">
+            <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> Native-first creative</span>
+            <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> Platform-specific specs</span>
+            <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> A/B variants included</span>
+          </div>
         </div>
       </section>
 
