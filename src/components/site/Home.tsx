@@ -7,7 +7,7 @@ import {
   MousePointerClick, Palette, LayoutTemplate, Video, ShoppingBag,
   Youtube, Instagram, Facebook, Sparkles, MessageCircle, Search,
   Stethoscope, Building2, ChevronRight, Star, Mail, Globe,
-  Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus,
+  Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus, Flame, CalendarCheck,
 } from "lucide-react";
 import logoAsset from "@/assets/spotmock-logo.png.asset.json";
 import heroVisual from "@/assets/hero-visual.jpg";
@@ -16,16 +16,15 @@ const nav = [
   { label: "Services", href: "#services" },
   { label: "Results", href: "#results" },
   { label: "Reviews", href: "#reviews" },
-  { label: "Process", href: "#process" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
 const stats = [
-  { value: "3x", label: "Avg. CTR Lift" },
-  { value: "200+", label: "Creatives Shipped" },
-  { value: "48h", label: "Fast Turnaround" },
-  { value: "100%", label: "Conversion Focus" },
+  { value: "3.4×", label: "Avg. CTR Lift" },
+  { value: "1,200+", label: "Creatives Shipped" },
+  { value: "48h", label: "First Draft" },
+  { value: "4.9/5", label: "Client Rating" },
 ];
 
 const creatorServices = [
@@ -48,14 +47,6 @@ const healthcareServices = [
   { icon: Search, title: "Google Maps & Local SEO", desc: "Help patients discover your clinic first in local search." },
   { icon: Users, title: "Doctor Personal Branding", desc: "Authority and visibility strategy for doctors and specialists." },
   { icon: MessageCircle, title: "WhatsApp Automation", desc: "Automated inquiry and appointment flows on WhatsApp & Messenger." },
-];
-
-const process = [
-  { n: "01", title: "Discovery", desc: "We review your goals, brand, audience, and performance targets." },
-  { n: "02", title: "Concept & Design", desc: "Initial concepts based on brief — you review and give feedback." },
-  { n: "03", title: "Revisions", desc: "Refine until the design is exactly right — precise, on-brand." },
-  { n: "04", title: "Final Delivery", desc: "All final files in agreed formats, ready to publish and run." },
-  { n: "05", title: "Retainer (optional)", desc: "Monthly support for ongoing design that scales with your growth." },
 ];
 
 const results = [
@@ -142,11 +133,16 @@ export function Home() {
       <section id="top" className="relative overflow-hidden bg-gradient-hero">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:py-24">
           <div className="lg:col-span-6 lg:pt-8">
-            <Badge className="rounded-full border-none bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/10">
-              Content & Conversion Design Studio
-            </Badge>
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge className="rounded-full border-none bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/10">
+                <Flame className="mr-1 h-3 w-3" /> Booking July — 3 slots left
+              </Badge>
+              <Badge className="rounded-full border-none bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-accent hover:bg-accent/10">
+                48h First Draft
+              </Badge>
+            </div>
             <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Design That{" "}
+              More Clicks. More Sales.{" "}
               <span className="relative inline-block">
                 <span className="text-gradient-primary">Performs.</span>
                 <svg viewBox="0 0 300 12" className="absolute -bottom-2 left-0 w-full" fill="none">
@@ -155,20 +151,26 @@ export function Home() {
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              We design high-performing visuals that drive clicks, conversions, and sales
-              for creators, sellers, and healthcare brands. Every pixel — engineered for outcomes.
+              We design thumbnails, ads, and landing pages that <strong className="text-foreground">3× your CTR</strong> and turn
+              scrollers into buyers — for creators, sellers, and healthcare brands. No fluff, no filler. Just pixels that pay you back.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#contact">
-                <Button size="lg" className="rounded-full bg-primary px-7 py-6 text-base font-semibold shadow-elegant hover:bg-primary-glow">
-                  Start Your Project <ArrowRight className="ml-1 h-4 w-4" />
+                <Button size="lg" className="group rounded-full bg-primary px-7 py-6 text-base font-bold shadow-elegant transition-transform hover:-translate-y-0.5 hover:bg-primary-glow">
+                  <CalendarCheck className="mr-2 h-4 w-4" /> Get My Free Audit
+                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
-              <a href="#services">
+              <a href="#results">
                 <Button size="lg" variant="outline" className="rounded-full border-2 border-foreground/15 bg-background px-7 py-6 text-base font-semibold hover:border-primary hover:text-primary">
-                  <Play className="mr-1 h-4 w-4" /> Explore Services
+                  <Play className="mr-1 h-4 w-4" /> See Real Results
                 </Button>
               </a>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> No contracts</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> 20-min free call</span>
+              <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Revisions until it converts</span>
             </div>
 
             <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
@@ -388,25 +390,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section id="process" className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-orange">Our Process</p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-            Brief. Design. Ship. <span className="text-gradient-primary">Repeat.</span>
-          </h2>
-        </div>
-        <div className="relative mt-16 grid gap-6 md:grid-cols-3 lg:grid-cols-5">
-          {process.map((p) => (
-            <div key={p.n} className="relative rounded-2xl border border-border/60 bg-card p-6 shadow-card">
-              <div className="font-display text-4xl font-extrabold text-primary/20">{p.n}</div>
-              <h3 className="mt-2 font-display text-lg font-bold">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* FAQ */}
       <section id="faq" className="bg-brand-ink py-24 text-background">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
@@ -457,22 +440,23 @@ export function Home() {
           <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-foreground/80">
-                <Star className="h-3 w-3 fill-current" /> The SpotMock Standard
+                <Flame className="h-3 w-3 fill-current" /> Limited July Slots
               </div>
               <h2 className="mt-4 font-display text-4xl font-extrabold leading-tight text-primary-foreground sm:text-5xl">
-                When your design works harder, your business grows faster.
+                Stop paying for design that just sits there.
               </h2>
               <p className="mt-5 max-w-xl text-lg text-primary-foreground/85">
-                Fast turnarounds. Clear communication. Zero guesswork. You brief us, we deliver work that performs —
-                on time, on brand, and built to grow with you.
+                Book a free 20-minute audit. We'll show you exactly where your creative is leaking clicks —
+                and give you 3 quick fixes on the call. Zero pitch. Zero pressure.
               </p>
             </div>
             <div className="lg:col-span-4 lg:text-right">
               <a href="#contact">
-                <Button size="lg" className="rounded-full bg-background px-8 py-6 text-base font-bold text-foreground shadow-elegant hover:bg-background/90">
-                  Book Your Free Call <ArrowRight className="ml-2 h-4 w-4" />
+                <Button size="lg" className="group rounded-full bg-background px-8 py-6 text-base font-bold text-foreground shadow-elegant transition-transform hover:-translate-y-0.5 hover:bg-background/90">
+                  Claim My Free Audit <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
+              <p className="mt-3 text-xs text-primary-foreground/70 lg:text-right">Reply within 1 business day.</p>
             </div>
           </div>
         </div>
@@ -572,6 +556,15 @@ export function Home() {
           </div>
         </div>
       </footer>
+
+      {/* STICKY MOBILE CTA */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 px-4 py-3 shadow-elegant backdrop-blur md:hidden">
+        <a href="#contact" className="block">
+          <Button className="w-full rounded-full bg-primary py-6 text-base font-bold shadow-elegant hover:bg-primary-glow">
+            Get My Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+          </Button>
+        </a>
+      </div>
     </div>
   );
 }
