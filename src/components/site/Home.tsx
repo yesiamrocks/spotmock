@@ -188,13 +188,7 @@ export function Home() {
               </Badge>
             </div>
             <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Design that gets you{" "}
-              <span className="relative inline-block">
-                <span className="text-gradient-primary">more clicks &amp; sales.</span>
-                <svg viewBox="0 0 300 12" className="absolute -bottom-2 left-0 w-full" fill="none">
-                  <path d="M2 9 Q 80 2 150 6 T 298 4" stroke="var(--accent)" strokeWidth="4" strokeLinecap="round" />
-                </svg>
-              </span>
+              Design that gets you <span className="text-gradient-primary">more clicks</span> &amp; <span className="text-gradient-primary">more sales.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               We design thumbnails, ad creatives &amp; landing pages that <strong className="text-foreground">3× your CTR</strong> and
