@@ -326,53 +326,65 @@ export function Home() {
         </div>
       </section>
 
-      {/* BUNDLES */}
-      <section id="bundles" className="bg-secondary/40 py-24">
+      {/* RESULTS */}
+      <section id="results" className="bg-secondary/40 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
-            <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-widest text-accent">Bundle Packages</p>
-              <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-                Launch faster. <span className="text-gradient-primary">Save more.</span>
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Our most-requested services combined at a discount — designed to get you shipping in a week, not a quarter.
-              </p>
-            </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-accent">Real Results</p>
+            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+              The only metric that matters: <span className="text-gradient-primary">did it move the number?</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Snapshots from recent projects. Real accounts, real dashboards, real lift.
+            </p>
           </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {bundles.map((b) => (
-              <Card key={b.name} className="group relative overflow-hidden rounded-3xl border-border/60 bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className={`inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${b.accent}`}>{b.audience}</p>
-                    <h3 className="mt-4 font-display text-2xl font-extrabold">{b.name}</h3>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xs text-muted-foreground line-through">{b.was}</div>
-                    <div className="font-display text-3xl font-extrabold text-primary">{b.now}</div>
-                    <div className="mt-1 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs font-bold text-primary">
-                      Save {b.save}
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 space-y-3">
-                  {b.includes.map((line) => (
-                    <div key={line} className="flex items-center gap-3">
-                      <div className="grid h-5 w-5 place-items-center rounded-full bg-primary/15 text-primary">
-                        <Check className="h-3 w-3" strokeWidth={3} />
-                      </div>
-                      <p className="text-sm text-foreground/80">{line}</p>
-                    </div>
-                  ))}
-                </div>
-                <a href="#contact" className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-primary hover:gap-3 transition-all">
-                  Get this bundle <ArrowRight className="h-4 w-4" />
-                </a>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {results.map((r) => (
+              <Card key={r.label} className="group rounded-3xl border-border/60 bg-card p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant">
+                <div className="font-display text-5xl font-extrabold text-gradient-primary">{r.metric}</div>
+                <div className="mt-4 font-display text-base font-bold">{r.label}</div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.detail}</p>
               </Card>
             ))}
           </div>
+
+          <div className="mt-16 grid gap-6 lg:grid-cols-4">
+            {guarantees.map((g) => (
+              <div key={g.title} className="rounded-2xl border border-border/60 bg-card p-6">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
+                  <g.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 font-display text-lg font-bold">{g.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="reviews" className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-orange">Client Wins</p>
+          <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+            Loved by creators, sellers, and clinics that <span className="text-gradient-primary">measure everything.</span>
+          </h2>
+        </div>
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {testimonials.map((t) => (
+            <Card key={t.name} className="flex flex-col rounded-3xl border-border/60 bg-card p-7 shadow-card">
+              <div className="flex gap-1 text-brand-orange">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </div>
+              <p className="mt-5 flex-1 text-base leading-relaxed text-foreground/85">"{t.quote}"</p>
+              <div className="mt-6 border-t border-border/60 pt-5">
+                <div className="font-bold">{t.name}</div>
+                <div className="text-sm text-muted-foreground">{t.role}</div>
+              </div>
+            </Card>
+          ))}
         </div>
       </section>
 
@@ -395,56 +407,44 @@ export function Home() {
         </div>
       </section>
 
-      {/* PRICING */}
-      <section id="pricing" className="bg-brand-ink py-24 text-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-yellow">Transparent Pricing</p>
+      {/* FAQ */}
+      <section id="faq" className="bg-brand-ink py-24 text-background">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+          <div className="lg:col-span-5">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-yellow">Frequently Asked</p>
             <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight text-background sm:text-5xl">
-              Pick a tier. Ship this week.
+              Everything you want to know before we start.
             </h2>
-            <p className="mt-4 text-lg text-background/70">
-              A slice of our most-requested services. Full menu shared on discovery call.
+            <p className="mt-5 text-lg text-background/70">
+              Still curious? Grab a free 20-minute audit — we'll answer live, and show you exactly where your creative is leaking clicks.
             </p>
+            <a href="#contact" className="mt-8 inline-block">
+              <Button size="lg" className="rounded-full bg-primary px-7 py-6 text-base font-bold text-primary-foreground shadow-elegant hover:bg-primary-glow">
+                Book Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </a>
           </div>
-
-          <div className="mt-14 space-y-14">
-            {pricing.map((group) => (
-              <div key={group.name}>
-                <h3 className="mb-6 font-display text-xl font-bold text-background/90">{group.name}</h3>
-                <div className="grid gap-5 md:grid-cols-3">
-                  {group.tiers.map((t) => (
-                    <div
-                      key={t.name}
-                      className={`relative rounded-2xl border p-7 ${
-                        t.recommended
-                          ? "border-primary bg-primary/10 shadow-elegant"
-                          : "border-white/10 bg-white/[0.03]"
-                      }`}
-                    >
-                      {t.recommended && (
-                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
-                          Most Popular
-                        </div>
-                      )}
-                      <div className="text-sm font-semibold text-background/70">{t.name}</div>
-                      <div className="mt-2 flex items-baseline gap-2">
-                        <span className="font-display text-4xl font-extrabold text-background">{t.price}</span>
-                        <span className="text-xs text-background/50">{t.unit}</span>
-                      </div>
-                      <div className="mt-6 space-y-3">
-                        {t.features.map((f) => (
-                          <div key={f} className="flex gap-2 text-sm text-background/80">
-                            <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary-glow" strokeWidth={2.5} />
-                            <span>{f}</span>
-                          </div>
-                        ))}
-                      </div>
+          <div className="lg:col-span-7">
+            <div className="divide-y divide-white/10 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+              {faqs.map((f, i) => {
+                const open = openFaq === i;
+                return (
+                  <button
+                    key={f.q}
+                    onClick={() => setOpenFaq(open ? null : i)}
+                    className="flex w-full items-start gap-4 px-6 py-5 text-left transition-colors hover:bg-white/[0.04]"
+                  >
+                    <div className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary/20 text-primary-glow">
+                      {open ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+                    <div className="flex-1">
+                      <div className="font-display text-base font-bold text-background sm:text-lg">{f.q}</div>
+                      {open && <p className="mt-3 text-sm leading-relaxed text-background/70">{f.a}</p>}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -566,8 +566,8 @@ export function Home() {
           </p>
           <div className="flex items-center gap-5 text-sm">
             <a href="#services" className="text-muted-foreground hover:text-primary">Services</a>
-            <a href="#bundles" className="text-muted-foreground hover:text-primary">Bundles</a>
-            <a href="#pricing" className="text-muted-foreground hover:text-primary">Pricing</a>
+            <a href="#results" className="text-muted-foreground hover:text-primary">Results</a>
+            <a href="#faq" className="text-muted-foreground hover:text-primary">FAQ</a>
             <a href="#contact" className="text-muted-foreground hover:text-primary">Contact</a>
           </div>
         </div>
