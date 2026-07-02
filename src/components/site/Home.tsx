@@ -379,25 +379,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section id="process" className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-brand-orange">Our Process</p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-            Brief. Design. Ship. <span className="text-gradient-primary">Repeat.</span>
-          </h2>
-        </div>
-        <div className="relative mt-16 grid gap-6 md:grid-cols-3 lg:grid-cols-5">
-          {process.map((p) => (
-            <div key={p.n} className="relative rounded-2xl border border-border/60 bg-card p-6 shadow-card">
-              <div className="font-display text-4xl font-extrabold text-primary/20">{p.n}</div>
-              <h3 className="mt-2 font-display text-lg font-bold">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* FAQ */}
       <section id="faq" className="bg-brand-ink py-24 text-background">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
