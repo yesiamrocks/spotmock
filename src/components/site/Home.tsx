@@ -14,6 +14,7 @@ import heroVisual from "@/assets/hero-visual.jpg";
 
 const nav = [
   { label: "Services", href: "#services" },
+  { label: "Case Studies", href: "#case-studies" },
   { label: "Results", href: "#results" },
   { label: "Reviews", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
@@ -54,6 +55,48 @@ const results = [
   { metric: "3.2×", label: "Patient bookings for dental clinic", detail: "New landing page + Meta ad creatives, first 60 days." },
   { metric: "-41%", label: "Cost-per-lead on Meta Ads", detail: "DTC skincare seller — same budget, new creative system." },
   { metric: "+68%", label: "Add-to-cart on Shopify PDP", detail: "Rebuilt product page hierarchy and above-the-fold visuals." },
+];
+
+const caseStudies = [
+  {
+    tag: "YouTube Creator",
+    industry: "Finance / Education",
+    title: "From 4% CTR to 11.2% in 21 days",
+    problem: "Channel had 240K subs but videos plateaued. Thumbnails looked polished — but blended into every finance channel on the platform.",
+    solution: "New thumbnail system with face-forward emotion, curiosity gap headlines, and a signature color grade. A/B tested for 3 rounds.",
+    metrics: [
+      { k: "+187%", v: "CTR" },
+      { k: "2.4×", v: "Views / video" },
+      { k: "+62K", v: "New subs in 30 days" },
+    ],
+    accent: "primary" as const,
+  },
+  {
+    tag: "Healthcare Brand",
+    industry: "Aesthetics Clinic",
+    title: "3.2× patient bookings in 60 days",
+    problem: "Beautiful clinic, broken funnel. Meta ads drove traffic to a homepage — booking form was buried three clicks deep.",
+    solution: "Dedicated conversion landing page, credibility-first hero, transparent pricing, and ad creatives matched to the offer angle.",
+    metrics: [
+      { k: "3.2×", v: "Bookings" },
+      { k: "-58%", v: "Cost per lead" },
+      { k: "9.4%", v: "Landing CVR" },
+    ],
+    accent: "accent" as const,
+  },
+  {
+    tag: "DTC Seller",
+    industry: "Skincare · Shopify",
+    title: "-41% CPL, same budget, new creative system",
+    problem: "Creator-style UGC ads had fatigued. ROAS dropped from 3.1 to 1.4 over a quarter and blended in with every other skincare brand.",
+    solution: "10-variant static + video ad system built around one proprietary claim. Rebuilt PDP above-the-fold to match ad promise.",
+    metrics: [
+      { k: "-41%", v: "CPL" },
+      { k: "+68%", v: "Add-to-cart" },
+      { k: "4.7×", v: "ROAS" },
+    ],
+    accent: "brand-orange" as const,
+  },
 ];
 
 const testimonials = [
