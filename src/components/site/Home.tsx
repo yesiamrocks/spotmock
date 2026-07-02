@@ -378,6 +378,66 @@ export function Home() {
 
       {/* RESULTS */}
       <section id="results" className="bg-secondary/40 py-24">
+        {/* keep anchor */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" />
+      </section>
+
+      {/* CASE STUDIES */}
+      <section id="case-studies" className="bg-secondary/40 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-orange">Case Studies</p>
+            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+              Real projects. <span className="text-gradient-primary">Real numbers.</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              A look inside three recent engagements — the problem, what we shipped, and the lift we measured.
+            </p>
+          </div>
+
+          <div className="mt-14 space-y-6">
+            {caseStudies.map((c, i) => (
+              <Card key={c.title} className="group grid gap-8 rounded-3xl border-border/60 bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant lg:grid-cols-12 lg:p-10">
+                <div className="lg:col-span-7">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge className={`rounded-full border-none px-3 py-1 text-xs font-bold uppercase tracking-wider ${
+                      c.accent === "primary" ? "bg-primary/10 text-primary hover:bg-primary/10"
+                      : c.accent === "accent" ? "bg-accent/10 text-accent hover:bg-accent/10"
+                      : "bg-brand-orange/15 text-brand-orange hover:bg-brand-orange/15"
+                    }`}>{c.tag}</Badge>
+                    <span className="text-xs font-medium text-muted-foreground">{c.industry}</span>
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl font-extrabold leading-tight sm:text-3xl">{c.title}</h3>
+                  <div className="mt-5 space-y-4">
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-destructive">The Problem</div>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/80">{c.problem}</p>
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-primary">What We Shipped</div>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/80">{c.solution}</p>
+                    </div>
+                  </div>
+                  <a href="#contact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-glow">
+                    Want a lift like this? Book your free audit <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+                <div className="grid grid-cols-3 gap-3 rounded-2xl bg-secondary/60 p-5 lg:col-span-5 lg:grid-cols-1 lg:content-center lg:gap-4">
+                  {c.metrics.map((m, mi) => (
+                    <div key={mi} className="text-center lg:text-left">
+                      <div className="font-display text-3xl font-extrabold text-gradient-primary sm:text-4xl">{m.k}</div>
+                      <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{m.v}</div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RESULTS METRICS */}
+      <section className="bg-secondary/40 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-widest text-accent">Real Results</p>
