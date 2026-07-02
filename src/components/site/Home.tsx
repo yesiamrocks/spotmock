@@ -7,15 +7,17 @@ import {
   MousePointerClick, Palette, LayoutTemplate, Video, ShoppingBag,
   Youtube, Instagram, Facebook, Sparkles, MessageCircle, Search,
   Stethoscope, Building2, ChevronRight, Star, Mail, Globe,
+  Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus,
 } from "lucide-react";
 import logoAsset from "@/assets/spotmock-logo.png.asset.json";
 import heroVisual from "@/assets/hero-visual.jpg";
 
 const nav = [
   { label: "Services", href: "#services" },
-  { label: "Bundles", href: "#bundles" },
+  { label: "Results", href: "#results" },
+  { label: "Reviews", href: "#reviews" },
   { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -56,62 +58,42 @@ const process = [
   { n: "05", title: "Retainer (optional)", desc: "Monthly support for ongoing design that scales with your growth." },
 ];
 
-const pricing = [
+const results = [
+  { metric: "+287%", label: "CTR lift on YouTube thumbnails", detail: "Finance creator, 240K subs — 30 days after redesign." },
+  { metric: "3.2×", label: "Patient bookings for dental clinic", detail: "New landing page + Meta ad creatives, first 60 days." },
+  { metric: "-41%", label: "Cost-per-lead on Meta Ads", detail: "DTC skincare seller — same budget, new creative system." },
+  { metric: "+68%", label: "Add-to-cart on Shopify PDP", detail: "Rebuilt product page hierarchy and above-the-fold visuals." },
+];
+
+const testimonials = [
   {
-    name: "YouTube Thumbnails",
-    tiers: [
-      { name: "Starter", price: "$25", unit: "one-off", features: ["1 thumbnail", "2 concepts", "2 revision rounds", "24 hr delivery", "PNG + PSD"], recommended: false },
-      { name: "Growth", price: "$60", unit: "one-off", features: ["3 thumbnails", "3 concepts each", "Unlimited revisions", "48 hr delivery", "CTR analysis"], recommended: true },
-      { name: "Pro Retainer", price: "$120", unit: "per month", features: ["8 thumbnails / month", "Unlimited concepts", "12 hr delivery", "A/B versions", "Monthly CTR report"], recommended: false },
-    ],
+    quote: "Our CTR jumped from 4% to 11% in three weeks. SpotMock doesn't design thumbnails — they design channel growth.",
+    name: "Ankit R.", role: "YouTube creator · 340K subs",
   },
   {
-    name: "Landing Pages",
-    tiers: [
-      { name: "Starter", price: "$150", unit: "one-off", features: ["1 landing page", "Mobile responsive", "2 revision rounds", "4 day delivery"], recommended: false },
-      { name: "Growth", price: "$280", unit: "one-off", features: ["Landing + Thank You", "Copywriting", "CTA optimization", "Unlimited revisions"], recommended: true },
-      { name: "Pro", price: "$500", unit: "one-off", features: ["Multi-section funnel", "A/B layout testing", "Dev handoff ready", "Analytics setup guide"], recommended: false },
-    ],
+    quote: "The new landing page pays for itself every single week. Patient inquiries tripled and the cost per booking is a third of what it was.",
+    name: "Dr. Meera S.", role: "Founder, Aesthetics Clinic",
   },
   {
-    name: "Brand Identity",
-    tiers: [
-      { name: "Starter", price: "$120", unit: "one-off", features: ["3 logo concepts", "Color palette", "Font system", "2 revision rounds"], recommended: false },
-      { name: "Growth", price: "$250", unit: "one-off", features: ["Everything in Starter", "Business card", "Social profile kit", "Brand guidelines PDF"], recommended: true },
-      { name: "Pro", price: "$450", unit: "one-off", features: ["Full brand system", "Brand strategy doc", "All source files", "Unlimited revisions"], recommended: false },
-    ],
+    quote: "We tested their ad creatives against our in-house designer. Theirs won on ROAS three campaigns in a row. Now they run our entire creative pipeline.",
+    name: "Jordan K.", role: "Growth Lead, DTC brand",
   },
 ];
 
-const bundles = [
-  {
-    name: "Creator Starter Pack",
-    audience: "For creators & influencers",
-    includes: ["Thumbnail Design (Growth)", "Social Media Design (Growth)", "Brand Identity (Starter)"],
-    was: "$390", now: "$320", save: "$70",
-    accent: "bg-accent/10 text-accent",
-  },
-  {
-    name: "Seller Growth Pack",
-    audience: "For product sellers",
-    includes: ["Product Page (Growth)", "Ad Creative (Growth)", "Landing Page (Growth)"],
-    was: "$550", now: "$480", save: "$70",
-    accent: "bg-brand-orange/15 text-brand-orange",
-  },
-  {
-    name: "Clinic Launch Pack",
-    audience: "For healthcare brands",
-    includes: ["Healthcare Page (Growth)", "Clinic Brand Identity (Growth)", "Social Media (Growth)"],
-    was: "$550", now: "$480", save: "$70",
-    accent: "bg-primary/10 text-primary",
-  },
-  {
-    name: "Patient Growth Pack",
-    audience: "For clinics & doctors",
-    includes: ["Patient Acquisition LP (Growth)", "Video Ad Creatives (Growth)", "Social Media (Growth)"],
-    was: "$550", now: "$480", save: "$70",
-    accent: "bg-brand-yellow/25 text-brand-ink",
-  },
+const guarantees = [
+  { icon: Clock, title: "48-hour first draft", desc: "You see a concept within two business days of your brief. No black boxes, no chasing." },
+  { icon: ShieldCheck, title: "Revisions until it converts", desc: "We iterate on the same project until the design hits the performance target — not just the aesthetic." },
+  { icon: BadgeCheck, title: "Performance-reviewed", desc: "Every deliverable is checked against a conversion checklist: hierarchy, CTA, contrast, hook, promise." },
+  { icon: Rocket, title: "Ready-to-ship files", desc: "Publish-ready assets in every format you need — plus source files, so you're never locked in." },
+];
+
+const faqs = [
+  { q: "How fast can you start?", a: "Most projects kick off within 24 hours of your brief. First concepts land in 48 hours or less." },
+  { q: "Do you guarantee results?", a: "We guarantee performance-obsessed work and revisions until the design hits the target. Actual results depend on your offer, product, and traffic — but we've never had a project ship without a measurable lift." },
+  { q: "Can you work with our existing brand?", a: "Yes. We adapt to your existing brand system, or we can rebuild it. Either way, every asset is on-brand and conversion-tuned." },
+  { q: "Do you sign NDAs?", a: "Always. Healthcare and creator projects are confidential by default. Case studies are only shared with explicit written permission." },
+  { q: "What if I don't know what I need?", a: "That's what the free 20-minute call is for. We audit your funnel, spot the highest-ROI creative to fix first, and quote only what you actually need." },
+  { q: "How do you price projects?", a: "Every engagement is quoted after the discovery call — scoped to your goal, timeline, and channel. No off-the-shelf packages, no hidden fees." },
 ];
 
 const problems = [
@@ -131,6 +113,7 @@ const platforms = [
 
 export function Home() {
   const [activeService, setActiveService] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -149,7 +132,7 @@ export function Home() {
           </nav>
           <a href="#contact">
             <Button className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-elegant hover:bg-primary-glow">
-              Book Free Call
+              Book Free Audit
             </Button>
           </a>
         </div>
