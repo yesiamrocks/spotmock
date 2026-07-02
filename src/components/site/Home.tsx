@@ -673,19 +673,19 @@ export function Home() {
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">I need help with</label>
-                <select className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary">
+                <select id="interest-select" className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary">
                   <option>YouTube Thumbnails</option>
                   <option>Ad Creatives</option>
                   <option>Landing Pages</option>
                   <option>Brand Identity</option>
                   <option>Healthcare Design</option>
-                  <option>A bundle package</option>
+                  <option>High-volume ad production (SEBPO-style)</option>
                   <option>Not sure yet</option>
                 </select>
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Project brief</label>
-                <textarea rows={4} className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary" placeholder="Tell us about your goals, audience, and timeline…" />
+                <textarea id="brief-textarea" rows={4} className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary" placeholder="Tell us about your goals, audience, and timeline…" />
               </div>
               <Button type="submit" className="w-full rounded-full bg-primary py-6 text-base font-bold shadow-elegant hover:bg-primary-glow">
                 Send Brief <ArrowRight className="ml-1 h-4 w-4" />
