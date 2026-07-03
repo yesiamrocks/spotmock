@@ -306,7 +306,7 @@ export function Home() {
       </section>
 
       {/* PLATFORMS */}
-      <section className="relative overflow-hidden border-y border-border/60 bg-brand-ink py-16 text-background">
+      <section className="relative overflow-hidden border-y border-border/60 bg-brand-ink py-20 text-background">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.15]"
@@ -339,9 +339,10 @@ export function Home() {
                   ? "text-brand-orange"
                   : "text-brand-yellow";
               return (
-                <div
+                <a
                   key={p.name}
-                  className="group relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08]"
+                  href="#contact"
+                  className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary-glow/60 hover:bg-white/[0.08] hover:shadow-[0_10px_30px_-15px_rgba(45,212,168,0.6)]"
                 >
                   <div className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white/5 ${tint} transition-transform group-hover:scale-110`}>
                     <p.icon className="h-4.5 w-4.5" strokeWidth={2.2} />
@@ -350,7 +351,8 @@ export function Home() {
                     <div className="truncate text-sm font-semibold text-background">{p.name}</div>
                     <div className="truncate text-[10px] font-medium uppercase tracking-wider text-background/40">{p.cat}</div>
                   </div>
-                </div>
+                  <ArrowRight className="ml-auto h-3.5 w-3.5 -translate-x-2 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 text-primary-glow" />
+                </a>
               );
             })}
           </div>
@@ -359,6 +361,23 @@ export function Home() {
             <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> Native-first creative</span>
             <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> Platform-specific specs</span>
             <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> A/B variants included</span>
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENT PROOF STRIP */}
+      <section className="border-b border-border/60 bg-secondary/30 py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-muted-foreground">Trusted by teams shipping across</p>
+          <div className="mt-6 grid grid-cols-2 items-center gap-6 sm:grid-cols-3 md:grid-cols-6">
+            {[
+              "Northline Health", "Peak Creators", "Vera Skincare",
+              "Studio Kavi", "BrightSmile Dental", "Odyssey DTC",
+            ].map((brand) => (
+              <div key={brand} className="text-center text-sm font-display font-bold uppercase tracking-wider text-foreground/40 transition-colors hover:text-foreground/80">
+                {brand}
+              </div>
+            ))}
           </div>
         </div>
       </section>
