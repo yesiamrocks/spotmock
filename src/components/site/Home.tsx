@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -8,6 +9,7 @@ import {
   Youtube, Instagram, Facebook, Sparkles, MessageCircle, Search,
   Stethoscope, Building2, ChevronRight, Star, Mail, Globe,
   Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus, Flame, CalendarCheck,
+  Quote, Phone, MapPin,
 } from "lucide-react";
 import logoAsset from "@/assets/spotmock-logo.png.asset.json";
 import heroVisual from "@/assets/hero-visual.jpg";
@@ -18,7 +20,6 @@ const nav = [
   { label: "Results", href: "#results" },
   { label: "Reviews", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const stats = [
@@ -175,6 +176,7 @@ const platforms = [
 export function Home() {
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [sent, setSent] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -190,6 +192,7 @@ export function Home() {
                 {n.label}
               </a>
             ))}
+            <Link to="/about" className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary">About</Link>
           </nav>
           <a href="#contact">
             <Button className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-elegant hover:bg-primary-glow">
