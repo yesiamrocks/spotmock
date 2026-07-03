@@ -626,6 +626,58 @@ export function Home() {
         </div>
       </section>
 
+      {/* SHORT ABOUT */}
+      <section className="mx-auto max-w-7xl px-4 pb-8 pt-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 rounded-3xl border border-border/60 bg-card p-8 shadow-card lg:grid-cols-12 lg:p-12">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">About SpotMock</p>
+            <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight sm:text-4xl">
+              A boutique studio doing <span className="text-gradient-primary">big-agency work</span>, at start-up speed.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              SpotMock is a small, senior team obsessed with one question: <em>did it move the number?</em> We work as an extension of your marketing team — auditing funnels, shipping conversion-first creative in 48 hours, and iterating until the metric moves. No account managers, no scope creep, no design-by-committee.
+            </p>
+            <div className="mt-8 grid grid-cols-3 gap-4">
+              <div>
+                <div className="font-display text-3xl font-extrabold text-foreground">120+</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Brands served</div>
+              </div>
+              <div>
+                <div className="font-display text-3xl font-extrabold text-foreground">1,200+</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Creatives shipped</div>
+              </div>
+              <div>
+                <div className="font-display text-3xl font-extrabold text-foreground">98%</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Client retention</div>
+              </div>
+            </div>
+            <Link to="/about" className="mt-8 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-glow">
+              Read our full story <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="relative lg:col-span-5">
+            <div className="grid h-full grid-cols-2 gap-3">
+              <div className="rounded-2xl bg-gradient-primary p-5 text-primary-foreground">
+                <Quote className="h-6 w-6 opacity-70" />
+                <p className="mt-3 text-sm font-semibold leading-snug">"Feels like an extension of our marketing team."</p>
+              </div>
+              <div className="rounded-2xl bg-brand-ink p-5 text-background">
+                <TrendingUp className="h-6 w-6 text-brand-yellow" />
+                <p className="mt-3 text-sm font-semibold leading-snug">Performance-first on every pixel.</p>
+              </div>
+              <div className="rounded-2xl bg-brand-yellow/40 p-5">
+                <Rocket className="h-6 w-6 text-brand-ink" />
+                <p className="mt-3 text-sm font-semibold leading-snug text-brand-ink">48-hour first drafts, every time.</p>
+              </div>
+              <div className="rounded-2xl bg-accent p-5 text-accent-foreground">
+                <ShieldCheck className="h-6 w-6 opacity-90" />
+                <p className="mt-3 text-sm font-semibold leading-snug">NDA on every project.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="bg-brand-ink py-24 text-background">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
