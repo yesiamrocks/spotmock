@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -8,6 +9,7 @@ import {
   Youtube, Instagram, Facebook, Sparkles, MessageCircle, Search,
   Stethoscope, Building2, ChevronRight, Star, Mail, Globe,
   Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus, Flame, CalendarCheck,
+  Quote, Phone, MapPin,
 } from "lucide-react";
 import logoAsset from "@/assets/spotmock-logo.png.asset.json";
 import heroVisual from "@/assets/hero-visual.jpg";
@@ -18,7 +20,6 @@ const nav = [
   { label: "Results", href: "#results" },
   { label: "Reviews", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const stats = [
@@ -175,6 +176,7 @@ const platforms = [
 export function Home() {
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [sent, setSent] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -190,6 +192,7 @@ export function Home() {
                 {n.label}
               </a>
             ))}
+            <Link to="/about" className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary">About</Link>
           </nav>
           <a href="#contact">
             <Button className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-elegant hover:bg-primary-glow">
@@ -242,6 +245,24 @@ export function Home() {
               <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> NDA on every project</span>
             </div>
 
+            {/* Trusted-by mini strip */}
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="flex -space-x-2">
+                {["#e85d3a", "#c9a84c", "#2dd4a8", "#4f46e5", "#ff6b6b"].map((c, i) => (
+                  <div key={i} className="grid h-9 w-9 place-items-center rounded-full border-2 border-background text-xs font-bold text-white shadow-sm" style={{ backgroundColor: c }}>
+                    {["A", "M", "J", "R", "K"][i]}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div className="flex items-center gap-1 text-brand-orange">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
+                  <span className="ml-1.5 text-sm font-bold text-foreground">4.9/5</span>
+                </div>
+                <div className="text-xs text-muted-foreground">Trusted by 120+ creators, clinics & DTC brands</div>
+              </div>
+            </div>
+
             <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {stats.map((s) => (
                 <div key={s.label}>
@@ -285,7 +306,7 @@ export function Home() {
       </section>
 
       {/* PLATFORMS */}
-      <section className="relative overflow-hidden border-y border-border/60 bg-brand-ink py-16 text-background">
+      <section className="relative overflow-hidden border-y border-border/60 bg-brand-ink py-20 text-background">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.15]"
@@ -318,9 +339,10 @@ export function Home() {
                   ? "text-brand-orange"
                   : "text-brand-yellow";
               return (
-                <div
+                <a
                   key={p.name}
-                  className="group relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08]"
+                  href="#contact"
+                  className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary-glow/60 hover:bg-white/[0.08] hover:shadow-[0_10px_30px_-15px_rgba(45,212,168,0.6)]"
                 >
                   <div className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white/5 ${tint} transition-transform group-hover:scale-110`}>
                     <p.icon className="h-4.5 w-4.5" strokeWidth={2.2} />
@@ -329,7 +351,8 @@ export function Home() {
                     <div className="truncate text-sm font-semibold text-background">{p.name}</div>
                     <div className="truncate text-[10px] font-medium uppercase tracking-wider text-background/40">{p.cat}</div>
                   </div>
-                </div>
+                  <ArrowRight className="ml-auto h-3.5 w-3.5 -translate-x-2 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 text-primary-glow" />
+                </a>
               );
             })}
           </div>
@@ -338,6 +361,23 @@ export function Home() {
             <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> Native-first creative</span>
             <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> Platform-specific specs</span>
             <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary-glow" /> A/B variants included</span>
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENT PROOF STRIP */}
+      <section className="border-b border-border/60 bg-secondary/30 py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-muted-foreground">Trusted by teams shipping across</p>
+          <div className="mt-6 grid grid-cols-2 items-center gap-6 sm:grid-cols-3 md:grid-cols-6">
+            {[
+              "Northline Health", "Peak Creators", "Vera Skincare",
+              "Studio Kavi", "BrightSmile Dental", "Odyssey DTC",
+            ].map((brand) => (
+              <div key={brand} className="text-center text-sm font-display font-bold uppercase tracking-wider text-foreground/40 transition-colors hover:text-foreground/80">
+                {brand}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -586,6 +626,58 @@ export function Home() {
         </div>
       </section>
 
+      {/* SHORT ABOUT */}
+      <section className="mx-auto max-w-7xl px-4 pb-8 pt-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 rounded-3xl border border-border/60 bg-card p-8 shadow-card lg:grid-cols-12 lg:p-12">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">About SpotMock</p>
+            <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight sm:text-4xl">
+              A boutique studio doing <span className="text-gradient-primary">big-agency work</span>, at start-up speed.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              SpotMock is a small, senior team obsessed with one question: <em>did it move the number?</em> We work as an extension of your marketing team — auditing funnels, shipping conversion-first creative in 48 hours, and iterating until the metric moves. No account managers, no scope creep, no design-by-committee.
+            </p>
+            <div className="mt-8 grid grid-cols-3 gap-4">
+              <div>
+                <div className="font-display text-3xl font-extrabold text-foreground">120+</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Brands served</div>
+              </div>
+              <div>
+                <div className="font-display text-3xl font-extrabold text-foreground">1,200+</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Creatives shipped</div>
+              </div>
+              <div>
+                <div className="font-display text-3xl font-extrabold text-foreground">98%</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Client retention</div>
+              </div>
+            </div>
+            <Link to="/about" className="mt-8 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-glow">
+              Read our full story <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="relative lg:col-span-5">
+            <div className="grid h-full grid-cols-2 gap-3">
+              <div className="rounded-2xl bg-gradient-primary p-5 text-primary-foreground">
+                <Quote className="h-6 w-6 opacity-70" />
+                <p className="mt-3 text-sm font-semibold leading-snug">"Feels like an extension of our marketing team."</p>
+              </div>
+              <div className="rounded-2xl bg-brand-ink p-5 text-background">
+                <TrendingUp className="h-6 w-6 text-brand-yellow" />
+                <p className="mt-3 text-sm font-semibold leading-snug">Performance-first on every pixel.</p>
+              </div>
+              <div className="rounded-2xl bg-brand-yellow/40 p-5">
+                <Rocket className="h-6 w-6 text-brand-ink" />
+                <p className="mt-3 text-sm font-semibold leading-snug text-brand-ink">48-hour first drafts, every time.</p>
+              </div>
+              <div className="rounded-2xl bg-accent p-5 text-accent-foreground">
+                <ShieldCheck className="h-6 w-6 opacity-90" />
+                <p className="mt-3 text-sm font-semibold leading-snug">NDA on every project.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="bg-brand-ink py-24 text-background">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
@@ -677,79 +769,143 @@ export function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-accent">Contact</p>
-            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-              Tell us what you need. We'll ship it.
-            </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Every project starts with a free 20-minute call. No pressure, no pitch —
-              just an honest conversation about what your visuals need to do.
-            </p>
-            <div className="mt-10 space-y-5">
-              <a href="mailto:hello@spotmock.com" className="flex items-start gap-4 rounded-2xl border border-border/60 bg-card p-5 transition-all hover:border-primary hover:shadow-card">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <Mail className="h-5 w-5" />
+      <section id="contact" className="relative overflow-hidden bg-brand-ink py-24 text-background">
+        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(700px 400px at 15% 0%, oklch(0.65 0.16 165 / 0.35), transparent 60%), radial-gradient(600px 350px at 90% 100%, oklch(0.7 0.19 20 / 0.3), transparent 60%)" }} />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-brand-yellow">
+                <CalendarCheck className="h-3.5 w-3.5" /> Book Your Free Audit
+              </span>
+              <h2 className="mt-4 font-display text-4xl font-extrabold leading-tight text-background sm:text-5xl">
+                Let's find where your creative is <span className="text-gradient-primary">leaking clicks.</span>
+              </h2>
+              <p className="mt-5 text-lg text-background/70">
+                20 minutes. Zero pitch. You walk away with 3 concrete fixes we'd make first — even if we never work together.
+              </p>
+
+              <div className="mt-8 space-y-3">
+                {[
+                  "48-hour first draft on every project",
+                  "Revisions until the metric moves",
+                  "NDA-protected. Your data stays yours.",
+                  "No retainers, no contracts, no lock-in",
+                ].map((t) => (
+                  <div key={t} className="flex items-center gap-3 text-sm text-background/85">
+                    <div className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/20 text-primary-glow">
+                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                    </div>
+                    {t}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 grid gap-3 sm:grid-cols-2">
+                <a href="mailto:hello@spotmock.com" className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-primary-glow/50 hover:bg-white/10">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/20 text-primary-glow">
+                    <Mail className="h-4.5 w-4.5" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-background/50">Email</div>
+                    <div className="truncate text-sm font-semibold text-background">hello@spotmock.com</div>
+                  </div>
+                </a>
+                <a href="https://wa.me/" className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-primary-glow/50 hover:bg-white/10">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent/20 text-brand-orange">
+                    <MessageCircle className="h-4.5 w-4.5" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-background/50">WhatsApp</div>
+                    <div className="truncate text-sm font-semibold text-background">Chat with us</div>
+                  </div>
+                </a>
+              </div>
+
+              <div className="mt-8 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <div className="flex -space-x-2">
+                  {["#e85d3a", "#c9a84c", "#2dd4a8", "#4f46e5"].map((c, i) => (
+                    <div key={i} className="h-8 w-8 rounded-full border-2 border-brand-ink" style={{ backgroundColor: c }} />
+                  ))}
                 </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Email</div>
-                  <div className="mt-0.5 font-semibold">hello@spotmock.com</div>
-                </div>
-              </a>
-              <div className="flex items-start gap-4 rounded-2xl border border-border/60 bg-card p-5">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/10 text-accent">
-                  <Globe className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Website</div>
-                  <div className="mt-0.5 font-semibold">spotmock.com</div>
+                <div className="text-xs text-background/70">
+                  <span className="font-bold text-background">12 audits booked</span> this week
                 </div>
               </div>
             </div>
-          </div>
 
-          <Card className="rounded-3xl border-border/60 bg-card p-8 shadow-card">
-            <form
-              className="space-y-5"
-              onSubmit={(e) => {
-                e.preventDefault();
-                window.location.href = "mailto:hello@spotmock.com";
-              }}
-            >
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Name</label>
-                  <input required className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary" placeholder="Your full name" />
-                </div>
-                <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Email</label>
-                  <input required type="email" className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary" placeholder="you@brand.com" />
-                </div>
-              </div>
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">I need help with</label>
-                <select id="interest-select" className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary">
-                  <option>YouTube Thumbnails</option>
-                  <option>Ad Creatives</option>
-                  <option>Landing Pages</option>
-                  <option>Brand Identity</option>
-                  <option>Healthcare Design</option>
-                  <option>High-volume ad production (SEBPO-style)</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Project brief</label>
-                <textarea id="brief-textarea" rows={4} className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary" placeholder="Tell us about your goals, audience, and timeline…" />
-              </div>
-              <Button type="submit" className="w-full rounded-full bg-primary py-6 text-base font-bold shadow-elegant hover:bg-primary-glow">
-                Send Brief <ArrowRight className="ml-1 h-4 w-4" />
-              </Button>
-              <p className="text-center text-xs text-muted-foreground">We reply within one business day.</p>
-            </form>
-          </Card>
+            <div className="lg:col-span-7">
+              <Card className="rounded-3xl border-white/10 bg-white/[0.04] p-8 shadow-elegant backdrop-blur">
+                {sent ? (
+                  <div className="flex flex-col items-center py-16 text-center">
+                    <div className="grid h-16 w-16 place-items-center rounded-full bg-primary text-primary-foreground">
+                      <Check className="h-7 w-7" strokeWidth={3} />
+                    </div>
+                    <h3 className="mt-6 font-display text-2xl font-extrabold text-background">Brief received!</h3>
+                    <p className="mt-2 max-w-sm text-sm text-background/70">We'll reply within one business day with your audit slot and a quick first take.</p>
+                  </div>
+                ) : (
+                <form
+                  className="space-y-5"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setSent(true);
+                  }}
+                >
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Your name</label>
+                      <input required className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Jane Doe" />
+                    </div>
+                    <div>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Work email</label>
+                      <input required type="email" className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="you@brand.com" />
+                    </div>
+                  </div>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Company / Channel</label>
+                      <input className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Brand or channel name" />
+                    </div>
+                    <div>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Monthly budget</label>
+                      <select className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all focus:border-primary-glow focus:bg-white/10">
+                        <option className="bg-brand-ink">Under $1k</option>
+                        <option className="bg-brand-ink">$1k – $3k</option>
+                        <option className="bg-brand-ink">$3k – $10k</option>
+                        <option className="bg-brand-ink">$10k+</option>
+                        <option className="bg-brand-ink">Not sure yet</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">I need help with</label>
+                    <select id="interest-select" className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all focus:border-primary-glow focus:bg-white/10">
+                      <option className="bg-brand-ink">YouTube Thumbnails</option>
+                      <option className="bg-brand-ink">Ad Creatives</option>
+                      <option className="bg-brand-ink">Landing Pages</option>
+                      <option className="bg-brand-ink">Brand Identity</option>
+                      <option className="bg-brand-ink">Healthcare Design</option>
+                      <option className="bg-brand-ink">High-volume ad production (SEBPO-style)</option>
+                      <option className="bg-brand-ink">Not sure yet</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Project brief</label>
+                    <textarea id="brief-textarea" rows={4} className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Tell us about your goals, audience, and what's not converting today…" />
+                  </div>
+                  <Button type="submit" className="group w-full rounded-full bg-primary py-6 text-base font-bold text-primary-foreground shadow-elegant transition-transform hover:-translate-y-0.5 hover:bg-primary-glow">
+                    Send Brief & Book My Audit <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                  <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-[11px] text-background/50">
+                    <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> NDA on request</span>
+                    <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Reply within 1 business day</span>
+                    <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5" /> No spam, ever</span>
+                  </div>
+                </form>
+                )}
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
 
