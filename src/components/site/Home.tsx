@@ -245,6 +245,24 @@ export function Home() {
               <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> NDA on every project</span>
             </div>
 
+            {/* Trusted-by mini strip */}
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="flex -space-x-2">
+                {["#e85d3a", "#c9a84c", "#2dd4a8", "#4f46e5", "#ff6b6b"].map((c, i) => (
+                  <div key={i} className="grid h-9 w-9 place-items-center rounded-full border-2 border-background text-xs font-bold text-white shadow-sm" style={{ backgroundColor: c }}>
+                    {["A", "M", "J", "R", "K"][i]}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div className="flex items-center gap-1 text-brand-orange">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
+                  <span className="ml-1.5 text-sm font-bold text-foreground">4.9/5</span>
+                </div>
+                <div className="text-xs text-muted-foreground">Trusted by 120+ creators, clinics & DTC brands</div>
+              </div>
+            </div>
+
             <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {stats.map((s) => (
                 <div key={s.label}>
