@@ -58,7 +58,9 @@
   --accent-foreground: oklch(0.99 0.005 90);
   --brand-orange: oklch(0.72 0.18 55);
   --brand-yellow: oklch(0.85 0.15 90);
-  --brand-ink: oklch(0.17 0.03 220);
+  --brand-ink: #1b4440;
+  --brand-ink-deep: #0f2a27;
+  --brand-ink-soft: #24544f;
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.99 0.005 90);
   --border: oklch(0.9 0.01 200);
