@@ -888,23 +888,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-border/60 bg-secondary/30">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-          <div className="flex items-center gap-3">
-            <img src={logoAsset.url} alt="SpotMock" className="h-8 w-auto" />
-          </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SpotMock Design Studio. Design That Performs.
-          </p>
-          <div className="flex items-center gap-5 text-sm">
-            <a href="#services" className="text-muted-foreground hover:text-primary">Services</a>
-            <a href="#results" className="text-muted-foreground hover:text-primary">Results</a>
-            <a href="#faq" className="text-muted-foreground hover:text-primary">FAQ</a>
-            <a href="#contact" className="text-muted-foreground hover:text-primary">Contact</a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* STICKY MOBILE CTA */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 px-4 py-3 shadow-elegant backdrop-blur md:hidden">
