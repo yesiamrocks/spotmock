@@ -636,16 +636,33 @@ export function Home() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
-            <Card key={t.name} className="flex flex-col rounded-3xl border-border/60 bg-card p-7 shadow-card">
+            <Card
+              key={t.name}
+              className="group relative flex flex-col overflow-hidden rounded-3xl border-border/60 bg-card p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant motion-reduce:hover:transform-none"
+            >
+              <Quote className="absolute right-5 top-5 h-10 w-10 text-primary/10 transition-colors group-hover:text-primary/25" />
               <div className="flex gap-1 text-brand-orange">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
               <p className="mt-5 flex-1 text-base leading-relaxed text-foreground/85">"{t.quote}"</p>
-              <div className="mt-6 border-t border-border/60 pt-5">
-                <div className="font-bold">{t.name}</div>
-                <div className="text-sm text-muted-foreground">{t.role}</div>
+              <div className="mt-6 flex items-center gap-3 border-t border-border/60 pt-5">
+                <img
+                  src={t.photo}
+                  alt={t.name}
+                  loading="lazy"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full border-2 border-background object-cover shadow-card"
+                />
+                <div className="min-w-0">
+                  <div className="truncate font-bold">{t.name}</div>
+                  <div className="truncate text-sm text-muted-foreground">{t.role}</div>
+                  <div className="mt-0.5 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-primary">
+                    <BadgeCheck className="h-3 w-3" /> {t.brand}
+                  </div>
+                </div>
               </div>
             </Card>
           ))}
