@@ -295,6 +295,54 @@ export function About() {
         </div>
       </section>
 
+      {/* CLIENT VOICES */}
+      <section className="border-y border-border/60 bg-secondary/40 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">Client voices</p>
+            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+              What working with us actually feels like.
+            </h2>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                quote: "They plug in like an in-house team — but ship 3× faster. Every asset comes with a reason, not just a look.",
+                name: "Priya N.", role: "Head of Growth · DTC beauty",
+                photo: "https://i.pravatar.cc/128?img=32", brand: "Vera Skincare",
+              },
+              {
+                quote: "Our patient bookings 3× in 60 days. The best part: they audit the funnel, not just the pixels.",
+                name: "Dr. Meera S.", role: "Founder · Aesthetics Clinic",
+                photo: "https://i.pravatar.cc/128?img=47", brand: "BrightSmile",
+              },
+              {
+                quote: "SpotMock made our CTR jump from 4% to 11% in three weeks. Every thumbnail has a conversion thesis behind it.",
+                name: "Ankit R.", role: "YouTube creator · 340K subs",
+                photo: "https://i.pravatar.cc/128?img=12", brand: "Peak Creators",
+              },
+            ].map((t) => (
+              <Card key={t.name} className="group relative overflow-hidden rounded-3xl border-border/60 bg-card p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant motion-reduce:hover:transform-none">
+                <div className="flex gap-1 text-brand-orange">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+                </div>
+                <p className="mt-5 text-base leading-relaxed text-foreground/85">"{t.quote}"</p>
+                <div className="mt-6 flex items-center gap-3 border-t border-border/60 pt-5">
+                  <img src={t.photo} alt={t.name} loading="lazy" width={48} height={48} className="h-12 w-12 rounded-full border-2 border-background object-cover shadow-card" />
+                  <div className="min-w-0">
+                    <div className="truncate font-bold">{t.name}</div>
+                    <div className="truncate text-sm text-muted-foreground">{t.role}</div>
+                    <div className="mt-0.5 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-primary">
+                      <BadgeCheck className="h-3 w-3" /> {t.brand}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-primary p-10 text-primary-foreground shadow-elegant sm:p-16">
