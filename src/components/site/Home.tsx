@@ -11,16 +11,9 @@ import {
   Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus, Flame, CalendarCheck,
   Quote, Phone, MapPin,
 } from "lucide-react";
-import logoAsset from "@/assets/spotmock-logo.png.asset.json";
 import heroVisual from "@/assets/hero-visual.jpg";
-
-const nav = [
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Results", href: "#results" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
-];
+import { SiteHeader } from "./SiteHeader";
+import { SiteFooter } from "./SiteFooter";
 
 const stats = [
   { value: "3.4×", label: "Avg. CTR Lift" },
