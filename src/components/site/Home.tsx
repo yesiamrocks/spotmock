@@ -179,27 +179,7 @@ export function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* NAV */}
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <a href="#top" className="flex items-center gap-2">
-            <img src={logoAsset.url} alt="SpotMock" className="h-9 w-auto" />
-          </a>
-          <nav className="hidden items-center gap-8 md:flex">
-            {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary">
-                {n.label}
-              </a>
-            ))}
-            <Link to="/about" className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary">About</Link>
-          </nav>
-          <a href="#contact">
-            <Button className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-elegant hover:bg-primary-glow">
-              Book Free Audit
-            </Button>
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* HERO */}
       <section id="top" className="relative overflow-hidden bg-gradient-hero">
