@@ -11,16 +11,9 @@ import {
   Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus, Flame, CalendarCheck,
   Quote, Phone, MapPin,
 } from "lucide-react";
-import logoAsset from "@/assets/spotmock-logo.png.asset.json";
 import heroVisual from "@/assets/hero-visual.jpg";
-
-const nav = [
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Results", href: "#results" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
-];
+import { SiteHeader } from "./SiteHeader";
+import { SiteFooter } from "./SiteFooter";
 
 const stats = [
   { value: "3.4×", label: "Avg. CTR Lift" },
@@ -121,14 +114,20 @@ const testimonials = [
   {
     quote: "Our CTR jumped from 4% to 11% in three weeks. SpotMock doesn't design thumbnails — they design channel growth.",
     name: "Ankit R.", role: "YouTube creator · 340K subs",
+    photo: "https://i.pravatar.cc/128?img=12",
+    brand: "Peak Creators",
   },
   {
     quote: "The new landing page pays for itself every single week. Patient inquiries tripled and the cost per booking is a third of what it was.",
     name: "Dr. Meera S.", role: "Founder, Aesthetics Clinic",
+    photo: "https://i.pravatar.cc/128?img=47",
+    brand: "BrightSmile Dental",
   },
   {
     quote: "We tested their ad creatives against our in-house designer. Theirs won on ROAS three campaigns in a row. Now they run our entire creative pipeline.",
     name: "Jordan K.", role: "Growth Lead, DTC brand",
+    photo: "https://i.pravatar.cc/128?img=68",
+    brand: "Vera Skincare",
   },
 ];
 
@@ -180,27 +179,7 @@ export function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* NAV */}
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <a href="#top" className="flex items-center gap-2">
-            <img src={logoAsset.url} alt="SpotMock" className="h-9 w-auto" />
-          </a>
-          <nav className="hidden items-center gap-8 md:flex">
-            {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary">
-                {n.label}
-              </a>
-            ))}
-            <Link to="/about" className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary">About</Link>
-          </nav>
-          <a href="#contact">
-            <Button className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-elegant hover:bg-primary-glow">
-              Book Free Audit
-            </Button>
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* HERO */}
       <section id="top" className="relative overflow-hidden bg-gradient-hero">
@@ -366,18 +345,62 @@ export function Home() {
       </section>
 
       {/* CLIENT PROOF STRIP */}
-      <section className="border-b border-border/60 bg-secondary/30 py-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-muted-foreground">Trusted by teams shipping across</p>
-          <div className="mt-6 grid grid-cols-2 items-center gap-6 sm:grid-cols-3 md:grid-cols-6">
+      <section aria-label="Trusted by" className="relative overflow-hidden border-b border-border/60 bg-secondary/40 py-14">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-40 motion-reduce:hidden"
+          style={{
+            backgroundImage:
+              "radial-gradient(500px 200px at 50% 0%, oklch(0.65 0.16 165 / 0.12), transparent 60%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary shadow-card">
+              <Sparkles className="h-3.5 w-3.5" /> Trusted by teams shipping across
+            </span>
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              Creators, DTC brands, and healthcare teams that measure everything trust us with the pixels that move the number.
+            </p>
+          </div>
+
+          <div className="mt-9 grid grid-cols-2 items-stretch gap-3 sm:grid-cols-3 md:grid-cols-6">
             {[
-              "Northline Health", "Peak Creators", "Vera Skincare",
-              "Studio Kavi", "BrightSmile Dental", "Odyssey DTC",
+              { name: "Northline Health", cat: "Healthcare", icon: Stethoscope },
+              { name: "Peak Creators", cat: "Creator Ops", icon: Youtube },
+              { name: "Vera Skincare", cat: "DTC Beauty", icon: Sparkles },
+              { name: "Studio Kavi", cat: "Agency", icon: Palette },
+              { name: "BrightSmile Dental", cat: "Clinic", icon: Building2 },
+              { name: "Odyssey DTC", cat: "eCommerce", icon: ShoppingBag },
             ].map((brand) => (
-              <div key={brand} className="text-center text-sm font-display font-bold uppercase tracking-wider text-foreground/40 transition-colors hover:text-foreground/80">
-                {brand}
+              <div
+                key={brand.name}
+                className="group flex items-center gap-3 rounded-2xl border border-border/60 bg-card px-4 py-3 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-elegant motion-reduce:hover:transform-none"
+              >
+                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <brand.icon className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="truncate font-display text-sm font-extrabold uppercase tracking-wide text-foreground/80 group-hover:text-foreground">
+                    {brand.name}
+                  </div>
+                  <div className="truncate text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                    {brand.cat}
+                  </div>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <div className="flex text-brand-orange">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
+              </div>
+              <span className="font-bold text-foreground">4.9/5</span> · 120+ brands
+            </span>
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-primary" /> NDA on every project</span>
+            <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-primary" /> 48-hour first draft</span>
           </div>
         </div>
       </section>
@@ -449,10 +472,13 @@ export function Home() {
         </div>
 
         {/* Tab switcher */}
-        <div className="mx-auto mt-10 flex w-fit rounded-full border border-border bg-card p-1.5 shadow-card">
+        <div className="mx-auto mt-10 flex w-fit rounded-full border border-border bg-card p-1.5 shadow-card" role="tablist" aria-label="Service audiences">
           {["Creators & Sellers", "Healthcare Brands"].map((label, i) => (
             <button
+              type="button"
               key={label}
+              role="tab"
+              aria-selected={activeService === i}
               onClick={() => setActiveService(i)}
               className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all sm:px-7 ${
                 activeService === i ? "bg-primary text-primary-foreground shadow-elegant" : "text-foreground/60 hover:text-foreground"
@@ -463,7 +489,7 @@ export function Home() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div key={activeService} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {(activeService === 0 ? creatorServices : healthcareServices).map((s, i) => (
             <Card
               key={s.title}
@@ -610,16 +636,33 @@ export function Home() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
-            <Card key={t.name} className="flex flex-col rounded-3xl border-border/60 bg-card p-7 shadow-card">
+            <Card
+              key={t.name}
+              className="group relative flex flex-col overflow-hidden rounded-3xl border-border/60 bg-card p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant motion-reduce:hover:transform-none"
+            >
+              <Quote className="absolute right-5 top-5 h-10 w-10 text-primary/10 transition-colors group-hover:text-primary/25" />
               <div className="flex gap-1 text-brand-orange">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
               <p className="mt-5 flex-1 text-base leading-relaxed text-foreground/85">"{t.quote}"</p>
-              <div className="mt-6 border-t border-border/60 pt-5">
-                <div className="font-bold">{t.name}</div>
-                <div className="text-sm text-muted-foreground">{t.role}</div>
+              <div className="mt-6 flex items-center gap-3 border-t border-border/60 pt-5">
+                <img
+                  src={t.photo}
+                  alt={t.name}
+                  loading="lazy"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full border-2 border-background object-cover shadow-card"
+                />
+                <div className="min-w-0">
+                  <div className="truncate font-bold">{t.name}</div>
+                  <div className="truncate text-sm text-muted-foreground">{t.role}</div>
+                  <div className="mt-0.5 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-primary">
+                    <BadgeCheck className="h-3 w-3" /> {t.brand}
+                  </div>
+                </div>
               </div>
             </Card>
           ))}
@@ -909,23 +952,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-border/60 bg-secondary/30">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:px-8">
-          <div className="flex items-center gap-3">
-            <img src={logoAsset.url} alt="SpotMock" className="h-8 w-auto" />
-          </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SpotMock Design Studio. Design That Performs.
-          </p>
-          <div className="flex items-center gap-5 text-sm">
-            <a href="#services" className="text-muted-foreground hover:text-primary">Services</a>
-            <a href="#results" className="text-muted-foreground hover:text-primary">Results</a>
-            <a href="#faq" className="text-muted-foreground hover:text-primary">FAQ</a>
-            <a href="#contact" className="text-muted-foreground hover:text-primary">Contact</a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* STICKY MOBILE CTA */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 px-4 py-3 shadow-elegant backdrop-blur md:hidden">
