@@ -6,6 +6,8 @@ import {
   Zap, Target, TrendingUp, Clock, BadgeCheck, Star, Palette, Brain,
   MessageCircle, Layers, Award, Globe,
 } from "lucide-react";
+import { SiteHeader } from "./SiteHeader";
+import { SiteFooter } from "./SiteFooter";
 
 const stats = [
   { value: "98%", label: "Client satisfaction" },
@@ -64,29 +66,7 @@ const values = [
 export function About() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* NAV */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-foreground shadow-elegant">
-              <Sparkles className="h-4 w-4" />
-            </div>
-            <span className="font-display text-lg font-extrabold tracking-tight">SpotMock</span>
-          </Link>
-          <nav className="hidden gap-7 text-sm font-semibold text-muted-foreground md:flex">
-            <Link to="/" className="hover:text-foreground">Home</Link>
-            <Link to="/about" className="text-foreground">About</Link>
-            <a href="/#services" className="hover:text-foreground">Services</a>
-            <a href="/#case-studies" className="hover:text-foreground">Case Studies</a>
-            <a href="/#contact" className="hover:text-foreground">Contact</a>
-          </nav>
-          <Link to="/" hash="contact">
-            <Button className="rounded-full bg-primary px-5 shadow-elegant hover:bg-primary-glow">
-              Free Audit <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* HERO */}
       <section className="relative overflow-hidden">
@@ -339,15 +319,7 @@ export function About() {
         </div>
       </section>
 
-      <footer className="border-t border-border/60 py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-xs text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
-          <div>© {new Date().getFullYear()} SpotMock. Design that performs.</div>
-          <div className="flex gap-5">
-            <Link to="/" className="hover:text-foreground">Home</Link>
-            <a href="/#contact" className="hover:text-foreground">Contact</a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
