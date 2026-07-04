@@ -114,14 +114,20 @@ const testimonials = [
   {
     quote: "Our CTR jumped from 4% to 11% in three weeks. SpotMock doesn't design thumbnails — they design channel growth.",
     name: "Ankit R.", role: "YouTube creator · 340K subs",
+    photo: "https://i.pravatar.cc/128?img=12",
+    brand: "Peak Creators",
   },
   {
     quote: "The new landing page pays for itself every single week. Patient inquiries tripled and the cost per booking is a third of what it was.",
     name: "Dr. Meera S.", role: "Founder, Aesthetics Clinic",
+    photo: "https://i.pravatar.cc/128?img=47",
+    brand: "BrightSmile Dental",
   },
   {
     quote: "We tested their ad creatives against our in-house designer. Theirs won on ROAS three campaigns in a row. Now they run our entire creative pipeline.",
     name: "Jordan K.", role: "Growth Lead, DTC brand",
+    photo: "https://i.pravatar.cc/128?img=68",
+    brand: "Vera Skincare",
   },
 ];
 
