@@ -345,18 +345,62 @@ export function Home() {
       </section>
 
       {/* CLIENT PROOF STRIP */}
-      <section className="border-b border-border/60 bg-secondary/30 py-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-muted-foreground">Trusted by teams shipping across</p>
-          <div className="mt-6 grid grid-cols-2 items-center gap-6 sm:grid-cols-3 md:grid-cols-6">
+      <section aria-label="Trusted by" className="relative overflow-hidden border-b border-border/60 bg-secondary/40 py-14">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-40 motion-reduce:hidden"
+          style={{
+            backgroundImage:
+              "radial-gradient(500px 200px at 50% 0%, oklch(0.65 0.16 165 / 0.12), transparent 60%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary shadow-card">
+              <Sparkles className="h-3.5 w-3.5" /> Trusted by teams shipping across
+            </span>
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              Creators, DTC brands, and healthcare teams that measure everything trust us with the pixels that move the number.
+            </p>
+          </div>
+
+          <div className="mt-9 grid grid-cols-2 items-stretch gap-3 sm:grid-cols-3 md:grid-cols-6">
             {[
-              "Northline Health", "Peak Creators", "Vera Skincare",
-              "Studio Kavi", "BrightSmile Dental", "Odyssey DTC",
+              { name: "Northline Health", cat: "Healthcare", icon: Stethoscope },
+              { name: "Peak Creators", cat: "Creator Ops", icon: Youtube },
+              { name: "Vera Skincare", cat: "DTC Beauty", icon: Sparkles },
+              { name: "Studio Kavi", cat: "Agency", icon: Palette },
+              { name: "BrightSmile Dental", cat: "Clinic", icon: Building2 },
+              { name: "Odyssey DTC", cat: "eCommerce", icon: ShoppingBag },
             ].map((brand) => (
-              <div key={brand} className="text-center text-sm font-display font-bold uppercase tracking-wider text-foreground/40 transition-colors hover:text-foreground/80">
-                {brand}
+              <div
+                key={brand.name}
+                className="group flex items-center gap-3 rounded-2xl border border-border/60 bg-card px-4 py-3 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-elegant motion-reduce:hover:transform-none"
+              >
+                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <brand.icon className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <div className="truncate font-display text-sm font-extrabold uppercase tracking-wide text-foreground/80 group-hover:text-foreground">
+                    {brand.name}
+                  </div>
+                  <div className="truncate text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                    {brand.cat}
+                  </div>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <div className="flex text-brand-orange">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
+              </div>
+              <span className="font-bold text-foreground">4.9/5</span> · 120+ brands
+            </span>
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-primary" /> NDA on every project</span>
+            <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-primary" /> 48-hour first draft</span>
           </div>
         </div>
       </section>
