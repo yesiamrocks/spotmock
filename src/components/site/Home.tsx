@@ -428,10 +428,13 @@ export function Home() {
         </div>
 
         {/* Tab switcher */}
-        <div className="mx-auto mt-10 flex w-fit rounded-full border border-border bg-card p-1.5 shadow-card">
+        <div className="mx-auto mt-10 flex w-fit rounded-full border border-border bg-card p-1.5 shadow-card" role="tablist" aria-label="Service audiences">
           {["Creators & Sellers", "Healthcare Brands"].map((label, i) => (
             <button
+              type="button"
               key={label}
+              role="tab"
+              aria-selected={activeService === i}
               onClick={() => setActiveService(i)}
               className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all sm:px-7 ${
                 activeService === i ? "bg-primary text-primary-foreground shadow-elegant" : "text-foreground/60 hover:text-foreground"
@@ -442,7 +445,7 @@ export function Home() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div key={activeService} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {(activeService === 0 ? creatorServices : healthcareServices).map((s, i) => (
             <Card
               key={s.title}
