@@ -11,6 +11,9 @@ import {
   Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus, Flame, CalendarCheck,
   Quote, Phone, MapPin,
 } from "lucide-react";
+import {
+  SiTiktok, SiMeta, SiGoogleads, SiAmazon, SiShopify, SiWebflow, SiFramer, SiWhatsapp,
+} from "react-icons/si";
 import heroVisual from "@/assets/hero-visual.jpg";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
