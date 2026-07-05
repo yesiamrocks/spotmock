@@ -336,7 +336,7 @@ export function Home() {
                     <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/5 ${tint} transition-transform group-hover:scale-110`} aria-hidden="true">
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
-                    <div className="min-w-0 pr-3">
+                    <div className="min-w-0">
                       <div className="truncate text-sm font-semibold text-background">{p.name}</div>
                       <div className="truncate text-[10px] font-medium uppercase tracking-wider text-background/40">{p.cat}</div>
                     </div>
