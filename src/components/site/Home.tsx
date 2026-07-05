@@ -11,9 +11,18 @@ import {
   Clock, ShieldCheck, BadgeCheck, Rocket, Plus, Minus, Flame, CalendarCheck,
   Quote, Phone, MapPin,
 } from "lucide-react";
+import {
+  SiTiktok, SiMeta, SiGoogleads, SiGoogle, SiShopify, SiWebflow, SiFramer, SiWhatsapp,
+} from "react-icons/si";
 import heroVisual from "@/assets/hero-visual.jpg";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
+
+const AmazonIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.582l.315-.118c.138-.053.209-.053.276.053.069.118.124.244.177.38.069.167.019.235-.123.303-2.582 1.129-5.344 1.697-8.287 1.697-4.083 0-7.969-1.082-11.655-3.246-.127-.074-.167-.15-.167-.247zm6.152-4.05c-1.521.897-2.732 1.34-3.65 1.34-.894 0-1.408-.373-1.552-1.109-.193-1.003.2-2.52 1.169-4.54.98-2.04 2.025-3.06 3.13-3.06.93 0 1.449.522 1.564 1.575.115 1.052-.264 2.55-1.156 4.28-.416.785-.852 1.41-1.305 1.87l-.2-.416zm7.574-3.593c-.185-.034-.3-.085-.343-.153-.046-.067-.066-.194-.066-.378V5.1c0-.277.043-.462.127-.55.084-.09.244-.135.482-.135l3.48.017c.19.005.31.05.363.138.052.086.08.239.08.459v1.3c0 .27-.055.45-.165.54-.11.09-.303.135-.578.135h-.872l.085 3.187c.89-.48 1.812-.72 2.767-.72.835 0 1.5.226 1.994.678.495.453.777 1.06.848 1.824l.348 3.45c.032.324.07.524.112.6.043.078.16.148.352.21l.52.165c.238.076.357.228.357.455 0 .276-.1.462-.298.557-.2.095-.537.142-1.012.142-.764 0-1.334-.06-1.71-.18-.375-.12-.63-.307-.764-.56-.135-.254-.228-.652-.28-1.195l-.28-2.91c-.058-.598-.25-1.064-.575-1.4-.325-.336-.74-.504-1.245-.504-.52 0-1.035.168-1.544.503l.127 4.423c.02.638-.19.956-.628.956-.398 0-.606-.206-.625-.617l-.255-7.296z" />
+  </svg>
+);
 
 const stats = [
   { value: "3.4×", label: "Avg. CTR Lift" },
@@ -159,17 +168,17 @@ const problems = [
 
 const platforms = [
   { name: "YouTube", icon: Youtube, cat: "Video" },
-  { name: "TikTok", icon: Video, cat: "Video" },
+  { name: "TikTok", icon: SiTiktok, cat: "Video" },
   { name: "Instagram", icon: Instagram, cat: "Social" },
   { name: "Facebook", icon: Facebook, cat: "Social" },
-  { name: "Meta Ads", icon: Target, cat: "Ads" },
-  { name: "Google Ads", icon: Search, cat: "Ads" },
-  { name: "TikTok Ads", icon: Flame, cat: "Ads" },
-  { name: "Amazon", icon: ShoppingBag, cat: "Commerce" },
-  { name: "Shopify", icon: ShoppingBag, cat: "Commerce" },
-  { name: "Webflow", icon: Globe, cat: "Web" },
-  { name: "Framer", icon: LayoutTemplate, cat: "Web" },
-  { name: "WhatsApp", icon: MessageCircle, cat: "Chat" },
+  { name: "Meta Ads", icon: SiMeta, cat: "Ads" },
+  { name: "Google Ads", icon: SiGoogleads, cat: "Ads" },
+  { name: "TikTok Ads", icon: SiTiktok, cat: "Ads" },
+  { name: "Amazon", icon: AmazonIcon, cat: "Commerce" },
+  { name: "Shopify", icon: SiShopify, cat: "Commerce" },
+  { name: "Webflow", icon: SiWebflow, cat: "Web" },
+  { name: "Framer", icon: SiFramer, cat: "Web" },
+  { name: "WhatsApp", icon: SiWhatsapp, cat: "Chat" },
 ];
 
 export function Home() {
@@ -324,7 +333,7 @@ export function Home() {
                   className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary-glow/60 hover:bg-white/[0.08] hover:shadow-[0_10px_30px_-15px_rgba(45,212,168,0.6)]"
                 >
                   <div className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white/5 ${tint} transition-transform group-hover:scale-110`}>
-                    <p.icon className="h-4.5 w-4.5" strokeWidth={2.2} />
+                    <p.icon className="h-4.5 w-4.5" />
                   </div>
                   <div className="min-w-0">
                     <div className="truncate text-sm font-semibold text-background">{p.name}</div>
