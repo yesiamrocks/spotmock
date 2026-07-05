@@ -333,7 +333,7 @@ export function Home() {
                   className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary-glow/60 hover:bg-white/[0.08] hover:shadow-[0_10px_30px_-15px_rgba(45,212,168,0.6)]"
                 >
                   <div className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white/5 ${tint} transition-transform group-hover:scale-110`}>
-                    <p.icon className="h-4.5 w-4.5" strokeWidth={2.2} />
+                    <p.icon className="h-4.5 w-4.5" />
                   </div>
                   <div className="min-w-0">
                     <div className="truncate text-sm font-semibold text-background">{p.name}</div>
