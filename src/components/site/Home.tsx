@@ -168,17 +168,17 @@ const problems = [
 
 const platforms = [
   { name: "YouTube", icon: Youtube, cat: "Video" },
-  { name: "TikTok", icon: Video, cat: "Video" },
+  { name: "TikTok", icon: SiTiktok, cat: "Video" },
   { name: "Instagram", icon: Instagram, cat: "Social" },
   { name: "Facebook", icon: Facebook, cat: "Social" },
-  { name: "Meta Ads", icon: Target, cat: "Ads" },
-  { name: "Google Ads", icon: Search, cat: "Ads" },
-  { name: "TikTok Ads", icon: Flame, cat: "Ads" },
-  { name: "Amazon", icon: ShoppingBag, cat: "Commerce" },
-  { name: "Shopify", icon: ShoppingBag, cat: "Commerce" },
-  { name: "Webflow", icon: Globe, cat: "Web" },
-  { name: "Framer", icon: LayoutTemplate, cat: "Web" },
-  { name: "WhatsApp", icon: MessageCircle, cat: "Chat" },
+  { name: "Meta Ads", icon: SiMeta, cat: "Ads" },
+  { name: "Google Ads", icon: SiGoogleads, cat: "Ads" },
+  { name: "TikTok Ads", icon: SiTiktok, cat: "Ads" },
+  { name: "Amazon", icon: AmazonIcon, cat: "Commerce" },
+  { name: "Shopify", icon: SiShopify, cat: "Commerce" },
+  { name: "Webflow", icon: SiWebflow, cat: "Web" },
+  { name: "Framer", icon: SiFramer, cat: "Web" },
+  { name: "WhatsApp", icon: SiWhatsapp, cat: "Chat" },
 ];
 
 export function Home() {
