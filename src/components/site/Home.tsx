@@ -331,16 +331,16 @@ export function Home() {
                 <li key={p.name}>
                   <a
                     href="#contact"
-                    className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary-glow/60 hover:bg-white/[0.08] hover:shadow-[0_10px_30px_-15px_rgba(45,212,168,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-glow/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink motion-reduce:transition-none motion-reduce:hover:transform-none"
+                    className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-primary-glow/60 hover:bg-white/[0.08] hover:shadow-[0_10px_30px_-15px_rgba(45,212,168,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-glow/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100"
                   >
-                    <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/5 ${tint} transition-transform group-hover:scale-110`} aria-hidden="true">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/5 ${tint} transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-3 group-hover:bg-white/10 motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-hover:rotate-0`} aria-hidden="true">
+                      <Icon className="h-5 w-5 transition-transform duration-300 ease-out group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100" aria-hidden="true" />
                     </div>
                     <div className="min-w-0">
-                      <div className="truncate text-sm font-semibold text-background">{p.name}</div>
+                      <div className="truncate text-sm font-semibold text-background transition-colors group-hover:text-brand-yellow">{p.name}</div>
                       <div className="truncate text-[10px] font-medium uppercase tracking-wider text-background/40">{p.cat}</div>
                     </div>
-                    <ArrowRight className="absolute right-4 top-1/2 h-3.5 w-3.5 -translate-x-2 -translate-y-1/2 text-primary-glow opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" aria-hidden="true" />
+                    <ArrowRight className="absolute right-4 top-1/2 h-3.5 w-3.5 -translate-x-2 -translate-y-1/2 text-primary-glow opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 motion-reduce:transition-none motion-reduce:group-hover:translate-x-[-0.5rem] motion-reduce:group-hover:opacity-0" aria-hidden="true" />
                   </a>
                 </li>
               );
