@@ -744,8 +744,11 @@ export function Home() {
               Still curious? Grab a free 20-minute audit — we'll answer live, and show you exactly where your creative is leaking clicks.
             </p>
             <a href="#contact" className="mt-8 inline-block">
-              <Button size="lg" className="rounded-full bg-primary px-7 py-6 text-base font-bold text-primary-foreground shadow-elegant hover:bg-primary-glow">
-                Book Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+              <Button
+                size="lg"
+                className="group relative rounded-full bg-primary px-7 py-6 text-base font-bold text-primary-foreground shadow-elegant transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary-glow hover:shadow-[0_0_32px_rgba(45,212,165,0.35)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink"
+              >
+                Book Free Audit <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1 group-active:translate-x-1" />
               </Button>
             </a>
           </div>
@@ -771,23 +774,6 @@ export function Home() {
               })}
             </div>
 
-            {/* Inline conversion card */}
-            <div className="mt-6 flex flex-col items-start justify-between gap-5 rounded-3xl border border-primary/30 bg-gradient-primary p-6 shadow-elegant sm:flex-row sm:items-center sm:p-7">
-              <div>
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-foreground/85">
-                  <Sparkles className="h-3.5 w-3.5" /> Still have questions?
-                </div>
-                <p className="mt-2 font-display text-xl font-extrabold text-primary-foreground sm:text-2xl">
-                  Get 3 free creative fixes on a 20-min call.
-                </p>
-                <p className="mt-1 text-sm text-primary-foreground/85">No pitch. No pressure. Just clarity.</p>
-              </div>
-              <a href="#contact" className="shrink-0">
-                <Button size="lg" className="group rounded-full bg-background px-6 py-6 text-base font-bold text-foreground shadow-elegant hover:-translate-y-0.5 hover:bg-background/90">
-                  Book My Free Audit <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </a>
-            </div>
           </div>
         </div>
       </section>
