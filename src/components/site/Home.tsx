@@ -888,27 +888,47 @@ export function Home() {
                   className="space-y-5"
                   onSubmit={(e) => {
                     e.preventDefault();
+                    const form = e.currentTarget as HTMLFormElement;
+                    const fd = new FormData(form);
+                    const name = String(fd.get("name") || "");
+                    const email = String(fd.get("email") || "");
+                    const company = String(fd.get("company") || "");
+                    const budget = String(fd.get("budget") || "");
+                    const interest = String(fd.get("interest") || "");
+                    const brief = String(fd.get("brief") || "");
+                    const subject = `New Audit Brief — ${name || "Website enquiry"}`;
+                    const body = [
+                      `Name: ${name}`,
+                      `Email: ${email}`,
+                      `Company / Channel: ${company}`,
+                      `Monthly budget: ${budget}`,
+                      `I need help with: ${interest}`,
+                      "",
+                      "Project brief:",
+                      brief,
+                    ].join("\n");
+                    window.location.href = `mailto:hello@spotmock.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                     setSent(true);
                   }}
                 >
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Your name</label>
-                      <input required className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Jane Doe" />
+                      <input name="name" required className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Jane Doe" />
                     </div>
                     <div>
                       <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Work email</label>
-                      <input required type="email" className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="you@brand.com" />
+                      <input name="email" required type="email" className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="you@brand.com" />
                     </div>
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Company / Channel</label>
-                      <input className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Brand or channel name" />
+                      <input name="company" className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Brand or channel name" />
                     </div>
                     <div>
                       <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Monthly budget</label>
-                      <select className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all focus:border-primary-glow focus:bg-white/10">
+                      <select name="budget" className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all focus:border-primary-glow focus:bg-white/10">
                         <option className="bg-brand-ink">Under $1k</option>
                         <option className="bg-brand-ink">$1k – $3k</option>
                         <option className="bg-brand-ink">$3k – $10k</option>
@@ -919,7 +939,7 @@ export function Home() {
                   </div>
                   <div>
                     <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">I need help with</label>
-                    <select id="interest-select" className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all focus:border-primary-glow focus:bg-white/10">
+                    <select id="interest-select" name="interest" className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all focus:border-primary-glow focus:bg-white/10">
                       <option className="bg-brand-ink">YouTube Thumbnails</option>
                       <option className="bg-brand-ink">Ad Creatives</option>
                       <option className="bg-brand-ink">Landing Pages</option>
@@ -931,7 +951,7 @@ export function Home() {
                   </div>
                   <div>
                     <label className="text-[10px] font-bold uppercase tracking-widest text-background/60">Project brief</label>
-                    <textarea id="brief-textarea" rows={4} className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Tell us about your goals, audience, and what's not converting today…" />
+                    <textarea id="brief-textarea" name="brief" rows={4} className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-background outline-none transition-all placeholder:text-background/30 focus:border-primary-glow focus:bg-white/10" placeholder="Tell us about your goals, audience, and what's not converting today…" />
                   </div>
                   <Button type="submit" className="group w-full rounded-full bg-primary py-6 text-base font-bold text-primary-foreground shadow-elegant transition-transform hover:-translate-y-0.5 hover:bg-primary-glow">
                     Send Brief & Book My Audit <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
