@@ -771,23 +771,6 @@ export function Home() {
               })}
             </div>
 
-            {/* Inline conversion card */}
-            <div className="mt-6 flex flex-col items-start justify-between gap-5 rounded-3xl border border-primary/30 bg-gradient-primary p-6 shadow-elegant sm:flex-row sm:items-center sm:p-7">
-              <div>
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary-foreground/85">
-                  <Sparkles className="h-3.5 w-3.5" /> Still have questions?
-                </div>
-                <p className="mt-2 font-display text-xl font-extrabold text-primary-foreground sm:text-2xl">
-                  Get 3 free creative fixes on a 20-min call.
-                </p>
-                <p className="mt-1 text-sm text-primary-foreground/85">No pitch. No pressure. Just clarity.</p>
-              </div>
-              <a href="#contact" className="shrink-0">
-                <Button size="lg" className="group rounded-full bg-background px-6 py-6 text-base font-bold text-foreground shadow-elegant hover:-translate-y-0.5 hover:bg-background/90">
-                  Book My Free Audit <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </a>
-            </div>
           </div>
         </div>
       </section>
