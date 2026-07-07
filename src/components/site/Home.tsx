@@ -744,8 +744,11 @@ export function Home() {
               Still curious? Grab a free 20-minute audit — we'll answer live, and show you exactly where your creative is leaking clicks.
             </p>
             <a href="#contact" className="mt-8 inline-block">
-              <Button size="lg" className="rounded-full bg-primary px-7 py-6 text-base font-bold text-primary-foreground shadow-elegant hover:bg-primary-glow">
-                Book Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+              <Button
+                size="lg"
+                className="group relative rounded-full bg-primary px-7 py-6 text-base font-bold text-primary-foreground shadow-elegant transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary-glow hover:shadow-[0_0_32px_rgba(45,212,165,0.35)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink"
+              >
+                Book Free Audit <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1 group-active:translate-x-1" />
               </Button>
             </a>
           </div>
