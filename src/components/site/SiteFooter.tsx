@@ -50,7 +50,7 @@ export function SiteFooter() {
       />
 
       {/* Newsletter / CTA strip */}
-      <div className="relative border-b border-white/10">
+      <div className="relative border-b border-white/10 bg-gradient-to-br from-[#0f2a27] to-[#153633]">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-7">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-brand-yellow">
