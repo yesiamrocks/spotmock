@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Menu, X, Flame } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import logoAsset from "@/assets/spotmock-logo.png.asset.json";
 
 const primaryNav = [
@@ -30,19 +30,6 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Announcement bar */}
-      <div className="hidden bg-brand-ink text-background/90 sm:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-1.5 text-[11px] font-medium sm:px-6 lg:px-8">
-          <Flame className="h-3 w-3 text-brand-yellow" />
-          <span>
-            <span className="font-bold text-brand-yellow">Booking July —</span> only 3 audit slots left this week.
-          </span>
-          <a href="/#contact" className="ml-2 underline underline-offset-4 hover:text-brand-yellow">
-            Grab yours →
-          </a>
-        </div>
-      </div>
-
       <header
         className={`sticky top-0 z-50 border-b transition-all ${
           scrolled
