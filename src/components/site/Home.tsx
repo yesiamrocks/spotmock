@@ -526,60 +526,150 @@ export function Home() {
       <section id="results" className="bg-secondary/40 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary">How we help</p>
-            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-              Design. Rank. Grow.
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
+              <Sparkles className="h-3.5 w-3.5" /> How we help
+            </span>
+            <h2 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              Design. <span className="text-gradient-primary">Rank.</span> Grow.
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Three pillars, one goal — turn every visitor into a customer.
+              Three pillars, one goal — turn every visitor into a paying customer.
             </p>
           </div>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "Design.",
-                body: (
-                  <>
-                    Our creative designers and expert web developers guide you from inception to reality, crafting <strong className="font-bold text-foreground">high-converting</strong> websites that generate new leads 24/7.
-                  </>
-                ),
+                num: "01",
+                icon: Palette,
+                tag: "Design",
+                title: "Websites built to convert.",
+                body: "Creative designers + senior devs shipping high-converting sites that generate new leads 24/7 — from wireframe to live in weeks, not quarters.",
+                bullets: ["Conversion-first UX", "48-hour first drafts", "Mobile-perfect builds"],
+                metric: { v: "3.2×", l: "avg. lift in CVR" },
                 href: "#services",
+                cta: "Explore design",
+                featured: false,
               },
               {
-                title: "Rank.",
-                body: (
-                  <>
-                    Our SEO services stand out by exclusively using <strong className="font-bold text-foreground">100% white-hat Google best practices</strong> to ensure your website ranks at the top of search engine results.
-                  </>
-                ),
+                num: "02",
+                icon: Search,
+                tag: "Rank",
+                title: "SEO that Google rewards.",
+                body: "100% white-hat best practices — technical SEO, on-page content, and authority building that lands you on page one and keeps you there.",
+                bullets: ["Technical + on-page SEO", "Topic-cluster content", "Backlink authority"],
+                metric: { v: "#1", l: "keyword rankings" },
                 href: "#case-studies",
+                cta: "See rankings",
+                featured: true,
               },
               {
-                title: "Grow.",
-                body: (
-                  <>
-                    Boost your leads and sales with our expertly crafted <strong className="font-bold text-foreground">pay-per-click (PPC) campaigns</strong>, designed by digital marketing professionals.
-                  </>
-                ),
+                num: "03",
+                icon: TrendingUp,
+                tag: "Grow",
+                title: "Paid campaigns that scale.",
+                body: "Expertly crafted PPC on Google, Meta & TikTok — creative, targeting, and offer tested weekly to turn ad spend into predictable pipeline.",
+                bullets: ["Google & Meta Ads", "Creative testing loops", "ROAS-first reporting"],
+                metric: { v: "4.8×", l: "return on ad spend" },
                 href: "#contact",
+                cta: "Start growing",
+                featured: false,
               },
-            ].map((card) => (
-              <div
-                key={card.title}
-                className="flex flex-col rounded-2xl border border-border/60 bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant"
-              >
-                <h3 className="font-display text-3xl font-extrabold tracking-tight">{card.title}</h3>
-                <p className="mt-4 flex-1 text-base leading-relaxed text-muted-foreground">
-                  {card.body}
-                </p>
-                <a href={card.href} className="mt-6 inline-flex w-fit">
-                  <Button className="rounded-md bg-primary px-5 py-5 text-sm font-bold text-primary-foreground shadow-elegant hover:bg-primary-glow">
-                    Read More <ChevronRight className="ml-1 h-4 w-4" />
-                  </Button>
+            ].map((card) => {
+              const Icon = card.icon;
+              const featured = card.featured;
+              return (
+                <a
+                  key={card.tag}
+                  href={card.href}
+                  className={
+                    "group relative flex flex-col overflow-hidden rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1.5 motion-reduce:hover:transform-none " +
+                    (featured
+                      ? "bg-brand-ink text-background shadow-elegant ring-1 ring-white/10 hover:shadow-elegant md:-translate-y-2"
+                      : "border border-border/60 bg-card text-foreground shadow-card hover:shadow-elegant hover:border-primary/40")
+                  }
+                >
+                  <div
+                    aria-hidden
+                    className={
+                      "pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full blur-3xl transition-opacity duration-500 " +
+                      (featured ? "bg-primary-glow/30 opacity-100" : "bg-primary/10 opacity-0 group-hover:opacity-100")
+                    }
+                  />
+                  <div className="relative flex items-center justify-between">
+                    <div
+                      className={
+                        "grid h-12 w-12 place-items-center rounded-2xl " +
+                        (featured ? "bg-white/10 text-primary-glow ring-1 ring-white/15" : "bg-primary/10 text-primary")
+                      }
+                    >
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span
+                      className={
+                        "font-display text-4xl font-black tracking-tight " +
+                        (featured ? "text-white/10" : "text-foreground/5 group-hover:text-primary/10")
+                      }
+                    >
+                      {card.num}
+                    </span>
+                  </div>
+
+                  <div className={"relative mt-6 text-[11px] font-bold uppercase tracking-[0.2em] " + (featured ? "text-primary-glow" : "text-primary")}>
+                    {card.tag}
+                  </div>
+                  <h3 className={"relative mt-2 font-display text-2xl font-extrabold leading-tight " + (featured ? "text-background" : "")}>
+                    {card.title}
+                  </h3>
+                  <p className={"relative mt-3 text-sm leading-relaxed " + (featured ? "text-background/75" : "text-muted-foreground")}>
+                    {card.body}
+                  </p>
+
+                  <ul className="relative mt-5 space-y-2">
+                    {card.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-sm">
+                        <Check
+                          className={"mt-0.5 h-4 w-4 shrink-0 " + (featured ? "text-primary-glow" : "text-primary")}
+                          strokeWidth={3}
+                        />
+                        <span className={featured ? "text-background/90" : "text-foreground/85"}>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className={"relative mt-6 flex items-end justify-between border-t pt-5 " + (featured ? "border-white/10" : "border-border/60")}>
+                    <div>
+                      <div className={"font-display text-2xl font-extrabold " + (featured ? "text-background" : "text-foreground")}>
+                        {card.metric.v}
+                      </div>
+                      <div className={"text-[10px] font-semibold uppercase tracking-wider " + (featured ? "text-background/60" : "text-muted-foreground")}>
+                        {card.metric.l}
+                      </div>
+                    </div>
+                    <span
+                      className={
+                        "inline-flex items-center gap-1.5 text-sm font-bold transition-all " +
+                        (featured ? "text-primary-glow group-hover:gap-2.5" : "text-primary group-hover:gap-2.5")
+                      }
+                    >
+                      {card.cta}
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
                 </a>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 text-center sm:flex-row">
+            <p className="text-sm text-muted-foreground">
+              Not sure which pillar you need? Get a free 20-min audit and we'll tell you.
+            </p>
+            <a href="#contact">
+              <Button className="rounded-full bg-primary px-5 font-bold shadow-elegant hover:bg-primary-glow">
+                Book my free audit <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </a>
           </div>
         </div>
         {/* keep anchor */}
