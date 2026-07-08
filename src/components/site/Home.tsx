@@ -524,6 +524,64 @@ export function Home() {
 
       {/* RESULTS */}
       <section id="results" className="bg-secondary/40 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">How we help</p>
+            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+              Design. Rank. Grow.
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Three pillars, one goal — turn every visitor into a customer.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Design.",
+                body: (
+                  <>
+                    Our creative designers and expert web developers guide you from inception to reality, crafting <strong className="font-bold text-foreground">high-converting</strong> websites that generate new leads 24/7.
+                  </>
+                ),
+                href: "#services",
+              },
+              {
+                title: "Rank.",
+                body: (
+                  <>
+                    Our SEO services stand out by exclusively using <strong className="font-bold text-foreground">100% white-hat Google best practices</strong> to ensure your website ranks at the top of search engine results.
+                  </>
+                ),
+                href: "#case-studies",
+              },
+              {
+                title: "Grow.",
+                body: (
+                  <>
+                    Boost your leads and sales with our expertly crafted <strong className="font-bold text-foreground">pay-per-click (PPC) campaigns</strong>, designed by digital marketing professionals.
+                  </>
+                ),
+                href: "#contact",
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="flex flex-col rounded-2xl border border-border/60 bg-card p-8 shadow-card transition-all hover:-translate-y-1 hover:shadow-elegant"
+              >
+                <h3 className="font-display text-3xl font-extrabold tracking-tight">{card.title}</h3>
+                <p className="mt-4 flex-1 text-base leading-relaxed text-muted-foreground">
+                  {card.body}
+                </p>
+                <a href={card.href} className="mt-6 inline-flex w-fit">
+                  <Button className="rounded-md bg-primary px-5 py-5 text-sm font-bold text-primary-foreground shadow-elegant hover:bg-primary-glow">
+                    Read More <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
         {/* keep anchor */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" />
       </section>
